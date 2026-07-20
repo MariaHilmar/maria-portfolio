@@ -1,8 +1,15 @@
 # Competências com evidências
 
-Cada área abaixo aponta para **evidência verificável** no projeto [JurisSync](https://github.com/MariaHilmar/juris-sync). Nada é só buzzword: há arquivo, endpoint, teste ou documento para conferir.
+Este documento reúne **evidências verificáveis** dos projetos de portfólio publicados no GitHub. Não agrega automaticamente todo o seu GitHub: cada link aponta para artefato real em repositório específico.
 
-**Case study completo:** [`case-study-juris-sync.md`](case-study-juris-sync.md) · **Site:** [mariahilmar-portfolio.vercel.app](https://mariahilmar-portfolio.vercel.app)
+| Ecossistema | Repositórios | Papel no portfólio |
+|-------------|--------------|-------------------|
+| **JurisSync** | [juris-sync](https://github.com/MariaHilmar/juris-sync), [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) | API + dashboard de estudo (Python/FastAPI, jurimetria, testes em camadas) |
+| **MGI KPI** | [mgi-kpi-dashboard](https://github.com/MariaHilmar/mgi-kpi-dashboard), [mgi-kpi-pipeline](https://github.com/MariaHilmar/mgi-kpi-pipeline) | BI de engenharia (ETL Python + dashboard Next.js/Supabase) |
+
+Os projetos são **artefatos de portfólio** (demo local ou deploy com auth), não serviços oficiais de órgãos públicos nem produtos em produção com dados sensíveis versionados.
+
+**Case study JurisSync:** [`case-study-juris-sync.md`](case-study-juris-sync.md) · **Site:** [mariahilmar-portfolio.vercel.app](https://mariahilmar-portfolio.vercel.app) · **Guia do testador JurisSync:** [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md) · **Demo MGI KPI:** [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app)
 
 ---
 
@@ -11,14 +18,19 @@ Cada área abaixo aponta para **evidência verificável** no projeto [JurisSync]
 | Área | Nível | Projeto | Evidência principal |
 |------|-------|---------|---------------------|
 | Gestão de produto / projetos | Avançado | JurisSync | Roadmap em sprints, requisitos rastreáveis, BDD |
-| Desenvolvimento backend | Avançado | JurisSync | FastAPI async, camadas, Docker, CI |
-| Automação de testes | Avançado | JurisSync | 43 testes em 5 camadas, Testcontainers, Schemathesis |
-| Engenharia de dados | Intermediário-avançado | JurisSync | Pipeline ETL idempotente, Alembic, integração DataJud |
-| Análise de dados | Intermediário | JurisSync | Endpoints de jurimetria com agregações SQL |
+| Desenvolvimento backend | Avançado | JurisSync API | FastAPI async, camadas, Docker, CI |
+| Frontend (stack de mercado) | Intermediário | JurisSync Web | Next.js, React, TypeScript, TanStack Query |
+| Automação de testes | Avançado | JurisSync API (+ Vitest no web) | 43 testes em 5 camadas, Testcontainers, Schemathesis |
+| Engenharia de dados | Intermediário-avançado | JurisSync API | Pipeline ETL idempotente, Alembic, integração DataJud |
+| Análise de dados | Intermediário | JurisSync API + Web | Stats SQL + dashboard Recharts |
+| BI / KPIs de engenharia | Avançado | MGI KPI Dashboard + Pipeline | ETL GitLab → Supabase, RPCs PostgreSQL, 358 testes Vitest |
+| Full-stack (dados + UX) | Avançado | MGI KPI Dashboard | Next.js 16 Server Components, cache, GovBR DS, SonarCloud |
 
-*Níveis são autoavaliação com base no escopo do projeto de portfólio, não em anos de experiência formal.*
+*Níveis são autoavaliação com base no escopo dos projetos de portfólio, não em anos de experiência formal.*
 
 ---
+
+# Parte A - JurisSync (estudo Python / jurimetria)
 
 ## 1. Gestão de produto e projetos
 
@@ -134,7 +146,57 @@ DataJud (ou mock) → RAG (normalização) → Pydantic (validação) → upsert
 
 ---
 
+## 6. Frontend (stack de mercado)
+
+**O que demonstro:** cliente web Next.js/React/TypeScript consumindo a API JurisSync, com estados de UX e documentação de teste (mock vs real).
+
+| Evidência | Onde ver |
+|-----------|----------|
+| Dashboard + lista + detalhe + sync | [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) |
+| Camada HTTP tipada | `juris-sync-web/src/lib/api/` |
+| TanStack Query + invalidação após sync | `juris-sync-web/src/hooks/` |
+| Guia do testador (clone local) | [guia-do-testador.md](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md) |
+| Testes Vitest + CI | `juris-sync-web/.github/workflows/ci.yml` |
+
+**Exemplo citável:** *"Dashboard Next.js separado da API Python, consumindo o mesmo contrato OpenAPI, com demo local em modo mock ou DataJud real."*
+
+---
+
+# Parte B - MGI KPI (BI de engenharia - projeto separado)
+
+> **Aviso:** projeto de portfólio inspirado em necessidades reais de monitoramento de equipes. **Não é sistema oficial do MGI.** Sem dados sensíveis ou credenciais no repositório.
+
+## 7. MGI KPI Dashboard + Pipeline
+
+**O que demonstro:** arquitetura full-stack para KPIs de engenharia - pipeline ETL Python (GitLab → regras em memória → Supabase) e dashboard Next.js somente leitura com agregações via RPC PostgreSQL.
+
+| Evidência | O que prova | Onde ver |
+|-----------|-------------|----------|
+| Dashboard web (este repo) | Visualização, auth, filtros globais, drill-down | [mgi-kpi-dashboard](https://github.com/MariaHilmar/mgi-kpi-dashboard) |
+| Pipeline ETL (repo irmão) | Extração GitLab/Git, transformação, upsert idempotente | [mgi-kpi-pipeline](https://github.com/MariaHilmar/mgi-kpi-pipeline) |
+| Server Components + cache | Performance e streaming com `unstable_cache` (TTL 24h) | `mgi-kpi-dashboard/lib/dashboard/` |
+| Regras no banco (RPCs) | Agregações pesadas no PostgreSQL, frontend read-only | `mgi-kpi-dashboard/supabase/migrations/` |
+| KPIs e fluxo | CFD, throughput, lead time, alertas, sprint, parcerias | Rotas `/`, `/fluxo`, `/sprint`, `/alertas` (ver README do dashboard) |
+| Testes frontend | 358 testes Vitest + Testing Library | `mgi-kpi-dashboard/tests/` |
+| CI + qualidade | Lint, tipos, testes, SonarCloud | [`.github/workflows/ci.yml`](https://github.com/MariaHilmar/mgi-kpi-dashboard/actions/workflows/ci.yml) |
+| Lógica ETL testável | Funções puras (`issue_fields.py`), pytest + Ruff | `mgi-kpi-pipeline/tests/` |
+| Demo deployada | Vercel com autenticação Supabase | [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app) |
+
+**Stack:** Next.js 16, React 19, TypeScript, Tailwind 4, GovBR Design System, Recharts, Supabase (PostgreSQL + Auth), Python 3.11+, GitHub Actions, SonarCloud.
+
+**Fluxo:**
+
+```
+GitLab / git log → mgi-kpi-pipeline (ETL Python) → Supabase (RPCs + views) → mgi-kpi-dashboard (Next.js)
+```
+
+**Exemplo citável:** *"BI de engenharia com ETL Python idempotente e dashboard Next.js read-only: agregações em RPC PostgreSQL, 358 testes Vitest e CI com SonarCloud."*
+
+---
+
 ## Mapa rápido: competência → artefato
+
+### JurisSync
 
 ```mermaid
 graph LR
@@ -144,6 +206,9 @@ graph LR
 
     DEV[Desenvolvimento] --> APP[app/]
     DEV --> DOCKER[Docker + CI]
+
+    FE[Frontend] --> WEB[juris-sync-web]
+    FE --> GUIDE[guia-do-testador]
 
     QA[Automação de testes] --> TESTS[tests/]
     QA --> CI[GitHub Actions]
@@ -155,6 +220,28 @@ graph LR
     ANALISE --> RN15[RN15]
 ```
 
+### MGI KPI
+
+```mermaid
+graph LR
+    GL[GitLab / git log] --> PIPE[mgi-kpi-pipeline]
+    PIPE --> SB[(Supabase RPCs)]
+    SB --> DASH[mgi-kpi-dashboard]
+    DASH --> KPI[KPIs / fluxo / sprint]
+    DASH --> TESTS[358 testes Vitest]
+```
+
+---
+
+## Outros repositórios (fora deste documento)
+
+| Repositório | Visibilidade | Incluir em competencias.md? |
+|-------------|--------------|----------------------------|
+| [mgi-kpi-pipeline](https://github.com/MariaHilmar/mgi-kpi-pipeline) | Público | Sim - citado na Parte B (par do dashboard) |
+| `sj-*` (Situação Jurídica) | Privado | Não recomendado sem tornar público ou redigir case anonimizado |
+| `contratos-v2-analise` | Público | Opcional - incluir só se README e escopo estiverem prontos para avaliação |
+| Demais privados | Privado | Evitar links - recrutador não consegue verificar |
+
 ---
 
 ## Próximas evidências (opcional)
@@ -162,10 +249,12 @@ graph LR
 | Item | Status |
 |------|--------|
 | Site live | https://mariahilmar-portfolio.vercel.app |
+| Dashboard Next.js (JurisSync) | Repo [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) - demo local |
+| Demo MGI KPI | [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app) (auth Supabase) |
 | Screenshots locais (Swagger, CI) | Instruções em [`docs/assets/README.md`](assets/README.md) |
 | Domínio customizado | Opcional |
-| API demo pública | Não implantada (sob pedido) |
+| API demo pública | Não implantada (avaliação esperada: local) |
 
 ---
 
-*Documento elaborado na Fase 3 do hub de portfólio. Última atualização: 2026-07-20.*
+*Documento do hub de portfólio. Última atualização: 2026-07-20 (inclui MGI KPI Dashboard como projeto separado).*

@@ -26,31 +26,37 @@ Nenhuma variável de ambiente é necessária para o site estático na v1.
 
 ---
 
-## GitHub Pages (alternativa)
+## CI no GitHub (build)
 
-Workflow pronto em [`.github/workflows/deploy-pages.yml`](../.github/workflows/deploy-pages.yml).
-
-Pré-requisitos:
-
-1. Publicar este repositório em `MariaHilmar/maria-portfolio`
-2. Em **Settings → Pages**, escolher fonte **GitHub Actions**
-3. Se o site for em `https://mariahilmar.github.io/maria-portfolio/`, ajustar `base` em `web/astro.config.mjs` para `'/maria-portfolio/'` e os links absolutos (`/docs/...`) para respeitar o base
-
-Enquanto o hub não estiver no GitHub, a URL canônica permanece a da Vercel.
+Workflow em [`.github/workflows/build-site.yml`](../.github/workflows/build-site.yml): valida `npm ci` + `npm run build` em push/PR que alteram `web/`. **Não publica** o site - produção fica na Vercel.
 
 ---
 
-## API JurisSync (opcional - Fase 5b)
+## GitHub Pages (opcional, desativado)
 
-**Não implantada nesta fase.** Deploy público da API só se pedido explicitamente.
+Se no futuro quiser hospedar em `https://mariahilmar.github.io/maria-portfolio/`:
 
-Se for feito no futuro:
+1. Habilitar **Settings → Pages → GitHub Actions**
+2. Recriar job de deploy no workflow (ou workflow separado)
+3. Ajustar `base` em `web/astro.config.mjs` para `'/maria-portfolio/'`
 
-- Usar modo mock (`DATAJUD_API_KEY` vazio)
-- Documentar cold start e custos (Railway/Render)
-- Expor apenas `GET /health` e endpoints de leitura com rate limit
+URL canônica atual: Vercel (tabela acima).
 
-Repo da API: https://github.com/MariaHilmar/juris-sync
+---
+
+## API e dashboard JurisSync
+
+**Artefatos de portfólio - avaliação local.** Não há deploy público obrigatório da API nem do dashboard Next.js.
+
+| Peça | Repo | Como avaliar |
+|------|------|--------------|
+| API | [juris-sync](https://github.com/MariaHilmar/juris-sync) | Clone + uvicorn local; mock sem chave |
+| Dashboard | [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) | Clone + `npm run dev`; aponta para `localhost:8000` |
+| Guia | [guia-do-testador.md](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md) | Mock vs DataJud real |
+
+O site Astro neste repo (`web/`) é a **vitrine**; o dashboard Next é a **evidência de frontend**, rodando na máquina de quem testa.
+
+Deploy público da API só se pedido explicitamente (e com restrições de CORS/rate limit).
 
 ---
 
@@ -59,5 +65,5 @@ Repo da API: https://github.com/MariaHilmar/juris-sync
 - [x] Site acessível publicamente
 - [x] URL no README raiz
 - [x] URL no site (`web/`)
-- [ ] Hub versionado no GitHub (opcional, para Pages / histórico)
+- [x] Hub versionado no GitHub
 - [ ] Domínio customizado (opcional)

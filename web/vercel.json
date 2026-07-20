@@ -2,5 +2,22 @@
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "redirects": [
+    {
+      "source": "/docs/competencias.md",
+      "destination": "/docs/competencias",
+      "permanent": true
+    },
+    {
+      "source": "/docs/case-study-juris-sync.md",
+      "destination": "/docs/case-study-juris-sync",
+      "permanent": true
+    },
+    {
+      "source": "/docs/deploy.md",
+      "destination": "/docs/deploy",
+      "permanent": true
+    }
+  ]
 }
