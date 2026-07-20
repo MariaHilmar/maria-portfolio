@@ -52,6 +52,33 @@ const assuntoStats = [
 ];
 
 const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
+
+const sjCapabilities = [
+  {
+    title: "Produto e requisitos",
+    text: "Roadmap, priorização, BDD e alinhamento com arquitetura em domínio jurídico/dados.",
+  },
+  {
+    title: "APIs e dados",
+    text: "FastAPI, PostgreSQL/Supabase, staging vs serving, pipelines e camadas analíticas.",
+  },
+  {
+    title: "Apps e BI",
+    text: "Interfaces web (Next.js), métricas, risco e jornadas de consulta sobre base local.",
+  },
+  {
+    title: "Segurança e LGPD",
+    text: "Isolamento multi-tenant (RLS), Privacy by Design e governança no ciclo do produto.",
+  },
+  {
+    title: "IA aplicada",
+    text: "Fundamentos de ML, NLP e estratégias de busca/RAG no contexto de jurimetria.",
+  },
+  {
+    title: "Qualidade",
+    text: "Documentação viva, critérios de aceite e disciplina de testes no fluxo de entrega.",
+  },
+];
 ---
 
 <BaseLayout>
@@ -59,6 +86,7 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     <a class="brand" href="#topo">Maria Hilmar</a>
     <nav aria-label="Principal">
       <a href="#sobre">Sobre</a>
+      <a href="#produto">Produto</a>
       <a href="#competencias">Competências</a>
       <a href="#projetos">Projetos</a>
       <a href="#contato">Contato</a>
@@ -75,17 +103,15 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
         intersecção entre negócios e engenharia.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="/docs/case-study-juris-sync">Case study</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/mariahilmar/" target="_blank" rel="noreferrer"
-          >LinkedIn</a
-        >
-        <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
+        <a class="btn btn-primary" href="#produto">Produto próprio</a>
+        <a class="btn btn-ghost" href="/docs/case-study-situacao-juridica">Case Situação Jurídica</a>
+        <a class="btn btn-ghost" href="#projetos">Evidências públicas</a>
       </div>
       <div class="hero-plane" aria-hidden="true">
         <div class="hero-orbit"></div>
         <div class="hero-block">
-          <span>JurisSync</span>
-          <strong>API · ETL · Jurimetria</strong>
+          <span>Produto · privado</span>
+          <strong>Situação Jurídica</strong>
         </div>
       </div>
     </section>
@@ -95,9 +121,8 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
       <h2>Liderança de produto na intersecção com dados e IA</h2>
       <p class="section-lead">
         Histórico consolidado em gestão de squads ágeis e governança de software, com
-        forte viés técnico. MBA em Ciência de Dados (BI & Analytics) e projeto próprio
-        de estudo (Situação Jurídica) para consolidar autonomia em Python, APIs e
-        engenharia de dados - evidências públicas no GitHub.
+        forte viés técnico. MBA em Ciência de Dados (BI & Analytics). Amplitude em produto
+        próprio de estudo; profundidade técnica em projetos públicos no GitHub.
       </p>
       <div class="about-grid">
         <div>
@@ -105,23 +130,97 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
           <p>Backlog orientado ao ROI, OKRs, engenharia de requisitos (BDD, UML, BPMN) e governança de QA (CTAL-TM).</p>
         </div>
         <div>
-          <h3>Projeto próprio de estudo</h3>
-          <p>Situação Jurídica (jurimetria/dados) → artefatos públicos JurisSync e MGI KPI. Não é vínculo empregatício.</p>
+          <h3>Produto próprio (privado)</h3>
+          <p>Situação Jurídica: ecossistema de jurimetria e dados. Código privado; visão e capacidades no case.</p>
         </div>
         <div>
           <h3>Como trabalho</h3>
-          <p>Documentação viva, critérios de aceite e evidências verificáveis em cada entrega.</p>
+          <p>Documentação viva, critérios de aceite e evidências verificáveis - públicas quando o código é aberto.</p>
         </div>
       </div>
+    </section>
+
+    <section id="produto" class="section wrap reveal">
+      <span class="section-label">Produto próprio</span>
+      <h2>Situação Jurídica</h2>
+      <p class="section-lead">
+        Produto próprio de estudo em jurimetria e dados jurídicos - <strong>não é vínculo
+        empregatício</strong>. O código e a operação permanecem privados. Aqui está a visão
+        do que o trabalho demonstra; as provas clonáveis estão na seção de projetos públicos.
+      </p>
+
+      <article class="project sj-case">
+        <div class="project-main">
+          <p class="privacy-note">Código privado · sem repositório público do produto</p>
+          <h3>Problema</h3>
+          <p>
+            Dados processuais fragmentados e difíceis de auditar. É preciso ingestão,
+            normalização, APIs, analytics e conformidade (LGPD) para apoiar decisões.
+          </p>
+          <h3>Papel</h3>
+          <p>
+            Product Owner / Product Lead com base técnica: roadmap, requisitos, alinhamento
+            com arquitetura, qualidade e jornadas de dados.
+          </p>
+          <h3>Arquitetura (alto nível)</h3>
+          <pre class="arch-box" aria-label="Arquitetura em alto nível">Fontes / coleta → Staging → Serving (API + banco multi-tenant)
+                         → Analytics/BI · Apps web · ML / busca</pre>
+          <h3>Resultados no ambiente do projeto</h3>
+          <ul>
+            <li>~60% menos latência após segregação staging/ETL versus serving</li>
+            <li>~70% menos esforço de especificação com docs e BDD assistidos por IA</li>
+            <li>Isolamento multi-tenant (RLS) e premissas Privacy by Design / LGPD</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn btn-primary" href="/docs/case-study-situacao-juridica">Case completo</a>
+            <a class="btn btn-ghost" href="#projetos">Ver evidências públicas</a>
+          </div>
+        </div>
+        <aside class="project-meta" aria-label="Fronteira de confidencialidade">
+          <div>
+            <strong>Privado</strong>
+            <span>código do produto</span>
+          </div>
+          <div>
+            <strong>Público</strong>
+            <span>narrativa + mapa</span>
+          </div>
+          <div>
+            <strong>Recorte</strong>
+            <span>JurisSync / MGI</span>
+          </div>
+          <div>
+            <strong>Não é</strong>
+            <span>clone do produto</span>
+          </div>
+        </aside>
+      </article>
+
+      <h3 class="project-family">Mapa de capacidades</h3>
+      <p class="project-intro">
+        O que o Situação Jurídica me permite afirmar em entrevistas - sem abrir o código.
+      </p>
+      <ul class="capability-grid">
+        {
+          sjCapabilities.map((item) => (
+            <li>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </li>
+          ))
+        }
+      </ul>
     </section>
 
     <section id="competencias" class="section wrap reveal">
       <span class="section-label">Competências</span>
       <h2>Evidências, não buzzwords</h2>
       <p class="section-lead">
-        Cada competência aponta para artefatos reais nos projetos JurisSync e MGI KPI.
-        Detalhamento completo em
-        <a href="/docs/competencias">competências com evidências</a>.
+        Amplitude no case do produto próprio; profundidade clonável em JurisSync e MGI KPI.
+        Detalhamento em
+        <a href="/docs/competencias">competências com evidências</a>
+        e no
+        <a href="/docs/case-study-situacao-juridica">case Situação Jurídica</a>.
       </p>
       <ul class="skills-list">
         {
@@ -137,19 +236,18 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     </section>
 
     <section id="projetos" class="section wrap reveal">
-      <span class="section-label">Projetos</span>
-      <h2>Projetos em destaque</h2>
+      <span class="section-label">Evidências públicas</span>
+      <h2>Projetos com código aberto</h2>
       <p class="section-lead">
-        Produto próprio de estudo <strong>Situação Jurídica</strong> (jurimetria/dados jurídicos)
-        e dois ecossistemas públicos de evidência: JurisSync e MGI KPI - código, testes e
-        documentação verificável.
+        Recortes técnicos públicos para avaliação (clone + run). <strong>Não são o produto
+        Situação Jurídica</strong> - são demonstrações independentes de API, testes, dashboard e BI.
       </p>
 
-      <h3 class="project-family">Situação Jurídica → JurisSync</h3>
+      <h3 class="project-family">JurisSync</h3>
       <p class="project-intro">
-        Projeto próprio de Product Ownership com base técnica. A API FastAPI + dashboard Next.js
-        (JurisSync) são as evidências públicas para jurimetria e sync de processos (DataJud CNJ).
-        Avaliação local - mock ou dados reais. Não é vínculo empregatício.
+        Projeto de portfólio no domínio de jurimetria: API FastAPI + dashboard Next.js
+        (DataJud CNJ). Avaliação local - mock ou dados reais. Não replica o ecossistema
+        completo do Situação Jurídica.
       </p>
       <article class="project">
         <div class="project-main">
@@ -548,6 +646,70 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     margin: 0 0 1.25rem;
   }
 
+  .privacy-note {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 1rem;
+  }
+
+  .arch-box {
+    margin: 0 0 1.25rem;
+    padding: 1rem 1.1rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    background: rgba(26, 107, 110, 0.06);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .sj-case .project-main h3 {
+    margin-top: 1.15rem;
+  }
+
+  .sj-case .project-main h3:first-of-type {
+    margin-top: 0;
+  }
+
+  .sj-case .project-main p {
+    margin: 0 0 0.25rem;
+    color: var(--ink-soft);
+  }
+
+  .capability-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .capability-grid li {
+    padding: 1.15rem 1.2rem;
+    border: 1px solid var(--line);
+    background: rgba(247, 250, 251, 0.65);
+    border-radius: var(--radius);
+  }
+
+  .capability-grid h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    margin: 0 0 0.45rem;
+  }
+
+  .capability-grid p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
   .project + .project-family {
     margin-top: 3rem;
   }
@@ -773,6 +935,7 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     }
 
     .about-grid,
+    .capability-grid,
     .project,
     .charts {
       grid-template-columns: 1fr;
