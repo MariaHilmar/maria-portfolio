@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" fill="none" role="img" aria-labelledby="t d">
+  <title id="t">Preview ilustrativo MGI KPI</title>
+  <desc id="d">Interface ilustrativa de dashboard de KPIs de engenharia</desc>
+  <rect width="960" height="560" rx="16" fill="#e8eef5"/>
+  <rect width="960" height="48" fill="#1351b4"/>
+  <text x="28" y="31" fill="#ffffff" font-size="15" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-weight="700">MGI · Dashboard KPIs</text>
+  <text x="820" y="31" fill="#dbe8ff" font-size="12" font-family="Segoe UI, Helvetica, Arial, sans-serif">portfolio demo</text>
+
+  <rect x="24" y="72" width="912" height="464" rx="8" fill="#ffffff"/>
+
+  <!-- KPI tiles -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <rect x="48" y="100" width="200" height="110" rx="8" fill="#f5f7fa" stroke="#d9e2ec"/>
+    <text x="68" y="132" fill="#5c6b7a" font-size="13">Lead time</text>
+    <text x="68" y="172" fill="#1351b4" font-size="36" font-weight="700">4.2d</text>
+
+    <rect x="268" y="100" width="200" height="110" rx="8" fill="#f5f7fa" stroke="#d9e2ec"/>
+    <text x="288" y="132" fill="#5c6b7a" font-size="13">Throughput</text>
+    <text x="288" y="172" fill="#1351b4" font-size="36" font-weight="700">18</text>
+
+    <rect x="488" y="100" width="200" height="110" rx="8" fill="#f5f7fa" stroke="#d9e2ec"/>
+    <text x="508" y="132" fill="#5c6b7a" font-size="13">WIP</text>
+    <text x="508" y="172" fill="#1351b4" font-size="36" font-weight="700">7</text>
+
+    <rect x="708" y="100" width="200" height="110" rx="8" fill="#f5f7fa" stroke="#d9e2ec"/>
+    <text x="728" y="132" fill="#5c6b7a" font-size="13">Alertas</text>
+    <text x="728" y="172" fill="#b86b2a" font-size="36" font-weight="700">2</text>
+
+    <!-- chart area -->
+    <rect x="48" y="236" width="560" height="260" rx="8" fill="#f8fafc" stroke="#d9e2ec"/>
+    <text x="68" y="268" fill="#132028" font-size="15" font-weight="700">Fluxo por sprint</text>
+    <polyline points="80,450 150,400 220,420 290,340 360,360 430,280 500,300 560,250" stroke="#1351b4" stroke-width="3" fill="none"/>
+    <circle cx="560" cy="250" r="5" fill="#1351b4"/>
+
+    <rect x="632" y="236" width="276" height="260" rx="8" fill="#f8fafc" stroke="#d9e2ec"/>
+    <text x="652" y="268" fill="#132028" font-size="15" font-weight="700">Entrega</text>
+    <text x="652" y="320" fill="#5c6b7a" font-size="13">ETL GitLab ’ Supabase</text>
+    <text x="652" y="350" fill="#5c6b7a" font-size="13">RPCs PostgreSQL</text>
+    <text x="652" y="380" fill="#5c6b7a" font-size="13">358 testes Vitest</text>
+    <text x="652" y="430" fill="#1351b4" font-size="13" font-weight="700">Preview ilustrativa</text>
+  </g>
+</svg>
