@@ -1,6 +1,6 @@
 # Case study: JurisSync API
 
-> **Projeto âncora do portfólio** | [Site live](https://mariahilmar-portfolio.vercel.app) | [Repositório](https://github.com/MariaHilmar/juris-sync) | [Documentação de requisitos](../juris-sync/docs/requisitos.md)
+> **Projeto âncora do portfólio** | [Site live](https://mariahilmar-portfolio.vercel.app) | [Repositório](https://github.com/MariaHilmar/juris-sync) | [Documentação de requisitos](../../juris-sync/docs/requisitos.md)
 
 ---
 
@@ -141,7 +141,7 @@ Relacionamento 1:N com cascata: um processo possui várias movimentações.
 - **RN03:** Movimentações inseridas apenas se a combinação `(data_hora, descricao)` for nova
 - **RN04:** Falha parcial na persistência faz rollback completo (atomicidade)
 
-Detalhes em [`juris-sync/docs/requisitos.md`](../juris-sync/docs/requisitos.md).
+Detalhes em [`juris-sync/docs/requisitos.md`](../../juris-sync/docs/requisitos.md).
 
 ---
 
@@ -168,10 +168,10 @@ Detalhes em [`juris-sync/docs/requisitos.md`](../juris-sync/docs/requisitos.md).
 
 | Artefato | Local |
 |----------|-------|
-| Roadmap de sprints | [`juris-sync/README.md`](../juris-sync/README.md#roadmap-sprints) |
-| Requisitos e BDD | [`juris-sync/docs/requisitos.md`](../juris-sync/docs/requisitos.md) |
+| Roadmap de sprints | [`juris-sync/README.md`](../../juris-sync/README.md#roadmap-sprints) |
+| Requisitos e BDD | [`juris-sync/docs/requisitos.md`](../../juris-sync/docs/requisitos.md) |
 | Rastreabilidade | Seção 9 de requisitos.md (requisito → código → teste) |
-| Coleção Postman (demo manual) | [`juris-sync/postman/`](../juris-sync/postman/) |
+| Coleção Postman (demo manual) | [`juris-sync/postman/`](../../juris-sync/postman/) |
 
 ---
 
@@ -262,7 +262,7 @@ Workflow: [`.github/workflows/ci.yml`](https://github.com/MariaHilmar/juris-sync
 |---------|-----|
 | Site do portfólio | https://mariahilmar-portfolio.vercel.app |
 | Repositório | https://github.com/MariaHilmar/juris-sync |
-| Documentação de requisitos | [`juris-sync/docs/requisitos.md`](../juris-sync/docs/requisitos.md) |
+| Documentação de requisitos | [`juris-sync/docs/requisitos.md`](../../juris-sync/docs/requisitos.md) |
 | Swagger UI (local) | http://localhost:8000/docs (após `python app/main.py`) |
 | ReDoc (local) | http://localhost:8000/redoc |
 | Workflow CI | https://github.com/MariaHilmar/juris-sync/actions/workflows/ci.yml |
@@ -284,4 +284,4 @@ API em http://localhost:8000 | Swagger em http://localhost:8000/docs
 
 ---
 
-*Case study elaborado como parte do hub de portfólio em `git-portfolio`.*
+*Case study elaborado como parte do hub de portfólio em `maria-portfolio`.*

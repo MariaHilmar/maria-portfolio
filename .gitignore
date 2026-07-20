@@ -34,11 +34,8 @@ dist/
 *.swp
 *.swo
 
-# Arquivos locais do hub (não versionar por padrão)
+# Arquivos locais (não versionar por padrão)
 Product Owner - Maria Hilmar Gomes da Silva.pdf
-
-# Cópia local do projeto âncora (repo próprio no GitHub)
-juris-sync/
 
 # Vercel local link
 .vercel/

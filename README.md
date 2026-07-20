@@ -5,7 +5,7 @@
 Este repositório é o **hub do meu portfólio no Git**. Aqui concentro a narrativa profissional, documentação e o site em [`web/`](web/). O código de referência fica no projeto [JurisSync](https://github.com/MariaHilmar/juris-sync), que serve como evidência técnica das competências abaixo.
 
 **Live:** [mariahilmar-portfolio.vercel.app](https://mariahilmar-portfolio.vercel.app)  
-**GitHub:** [MariaHilmar](https://github.com/MariaHilmar)  
+**GitHub:** [MariaHilmar/maria-portfolio](https://github.com/MariaHilmar/maria-portfolio)  
 **Deploy:** [`docs/deploy.md`](docs/deploy.md)
 
 ---
@@ -53,17 +53,17 @@ API REST assíncrona para monitoramento, ingestão e jurimetria de processos jud
 ## Como este repositório está organizado
 
 ```
-git-portfolio/          # Hub: narrativa, docs e site
-├── README.md           # Esta página - entrada do portfólio
+maria-portfolio/        # Este repositório (hub: narrativa, docs e site)
+├── README.md
 ├── PORTFOLIO_EXECUTION_PLAN.md
-├── docs/               # Case studies, competências e assets
+├── docs/
 ├── web/                # Site estático (Astro)
-└── juris-sync/         # Cópia local do projeto âncora (repo próprio no GitHub)
+└── scripts/
 ```
 
-- **`git-portfolio`** concentra a vitrine e a documentação narrativa.
+- **`maria-portfolio`** concentra a vitrine e a documentação narrativa.
 - **`web/`** - site Astro. Desenvolvimento: `cd web && npm install && npm run dev` (http://localhost:4321).
-- **`juris-sync`** é mantido como repositório independente em [MariaHilmar/juris-sync](https://github.com/MariaHilmar/juris-sync). A pasta local espelha o código para desenvolvimento e referência cruzada no hub.
+- **`juris-sync`** é projeto âncora em repositório separado: [MariaHilmar/juris-sync](https://github.com/MariaHilmar/juris-sync). No workspace local `D:\git-portfolio\`, fica em pasta irmã (`../juris-sync`).
 
 ---
 

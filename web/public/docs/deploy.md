@@ -32,9 +32,9 @@ Workflow pronto em [`.github/workflows/deploy-pages.yml`](../.github/workflows/d
 
 Pré-requisitos:
 
-1. Inicializar o hub como repositório Git e publicar (ex.: `MariaHilmar/git-portfolio`)
+1. Publicar este repositório em `MariaHilmar/maria-portfolio`
 2. Em **Settings → Pages**, escolher fonte **GitHub Actions**
-3. Se o site for em `https://mariahilmar.github.io/git-portfolio/`, ajustar `base` em `web/astro.config.mjs` para `'/git-portfolio/'` e os links absolutos (`/docs/...`) para respeitar o base
+3. Se o site for em `https://mariahilmar.github.io/maria-portfolio/`, ajustar `base` em `web/astro.config.mjs` para `'/maria-portfolio/'` e os links absolutos (`/docs/...`) para respeitar o base
 
 Enquanto o hub não estiver no GitHub, a URL canônica permanece a da Vercel.
 

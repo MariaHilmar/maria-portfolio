@@ -1,6 +1,6 @@
 # Site do portfólio (Astro)
 
-Vitrine estática do hub `git-portfolio`. Conteúdo alinhado às Fases 0-3 (posicionamento, case study e competências).
+Vitrine estática do repositório `maria-portfolio`. Conteúdo alinhado às Fases 0-3 (posicionamento, case study e competências).
 
 ## Pré-requisitos
 

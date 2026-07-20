@@ -3,7 +3,8 @@
 Documento para o **Composer** (ou outro agente) executar por etapas.
 Não implementar tudo de uma vez. Concluir uma fase, validar o critério de pronto, só então avançar.
 
-**Workspace:** `D:\git-portfolio`  
+**Repositório:** https://github.com/MariaHilmar/maria-portfolio  
+**Workspace local:** `D:\git-portfolio\maria-portfolio`  
 **Projeto âncora:** `juris-sync` (https://github.com/MariaHilmar/juris-sync)  
 **Autor dos commits (quando pedido):** `MariaHilmar <mariahilmar@gmail.com>`  
 **Idioma:** português (pt-BR). Nunca usar travessão (—); usar hífen (-).
@@ -26,20 +27,16 @@ Não implementar tudo de uma vez. Concluir uma fase, validar o critério de pron
 ## Contexto do repositório (estado atual)
 
 ```
-D:\git-portfolio\
-├── README.md            # Entrada do hub (Fase 1)
+D:\git-portfolio\maria-portfolio\
+├── README.md
 ├── PORTFOLIO_EXECUTION_PLAN.md
-├── docs/                # Case study, competências, assets (Fases 1-3)
-├── web/                 # Site Astro (Fase 4)
-├── .gitignore           # Raiz - cobre .env, caches, PDF local, node_modules
-├── juris-sync\          # API FastAPI - projeto principal de portfólio
-├── .env                 # NÃO versionar / NÃO commit
-└── Product Owner - Maria Hilmar Gomes da Silva.pdf  # local, ignorado pelo .gitignore
+├── docs/
+├── web/
+├── scripts/
+└── .github/
 ```
 
-- Site estático em `web/` (Astro). **Live:** https://mariahilmar-portfolio.vercel.app (Fase 5a).
-- Não há pasta `exemplos/` com código de terceiros.
-- JurisSync já demonstra: backend, ETL/idempotência, 5 camadas de teste, CI, jurimetria básica, roadmap de sprints.
+No workspace local `D:\git-portfolio\`, o projeto âncora `juris-sync/` fica como pasta irmã (repo próprio).
 
 ---
 
@@ -53,7 +50,7 @@ D:\git-portfolio\
 | Secundários | Desenvolvimento backend, automação de testes, engenharia de dados (pipeline), análise |
 | Frase de perfil | "Product Owner com base técnica em Python: traduz necessidade de negócio em entregas versionadas, testadas e observáveis." |
 | Público | Recrutadores e hiring managers de produto/tech; tech leads que avaliam profundidade |
-| Mensagem do hub | O repositório `git-portfolio` é a vitrine; `juris-sync` é a evidência técnica |
+| Mensagem do hub | O repositório `maria-portfolio` é a vitrine; `juris-sync` é a evidência técnica |
 
 Se o PDF de Product Owner estiver no workspace, usá-lo só como referência de tom/experiência - **não** colar dados sensíveis no README público sem confirmação do usuário.
 
@@ -108,7 +105,7 @@ Usuário confirmou (ou aceitou o default) papel + frase.
 
 ## Fase 1 - Fundação do hub
 
-**Objetivo:** Quem abre `git-portfolio` entende o que é em menos de 30 segundos.
+**Objetivo:** Quem abre `maria-portfolio` entende o que é em menos de 30 segundos.
 
 ### Tarefas
 
@@ -390,7 +387,7 @@ O agente deve abrir a sessão assim:
 | Decisão | Valor |
 |---------|--------|
 | Projeto âncora | JurisSync |
-| Hub | `git-portfolio` (README + docs + web) |
+| Hub | `maria-portfolio` (README + docs + web) |
 | Produto técnico | Repo/pasta `juris-sync` separado do hub quando possível |
 | skills.yaml | Não obrigatório; preferir Markdown |
 | Dashboard Streamlit separado | Não na v1; jurimetria no site ou screenshot |

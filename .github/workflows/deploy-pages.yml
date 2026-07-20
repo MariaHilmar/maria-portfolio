@@ -40,7 +40,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # Ajuste se o site for publicado em https://mariahilmar.github.io/git-portfolio/
+          # Ajuste se o site for publicado em https://mariahilmar.github.io/maria-portfolio/
           PUBLIC_BASE: /
 
       - name: Upload Pages artifact
