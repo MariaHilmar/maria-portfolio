@@ -3,7 +3,6 @@ import DocLayout from "../../layouts/DocLayout.astro";
 import { marked } from "marked";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 export function getStaticPaths() {
   return ["competencias", "case-study-juris-sync", "deploy"].map((slug) => ({
@@ -12,7 +11,7 @@ export function getStaticPaths() {
 }
 
 const slug = Astro.params.slug as string;
-const docsDir = path.join(fileURLToPath(new URL(".", import.meta.url)), "../../../../docs");
+const docsDir = path.join(process.cwd(), "docs");
 const filePath = path.join(docsDir, `${slug}.md`);
 const markdown = fs.readFileSync(filePath, "utf-8");
 const titleMatch = markdown.match(/^#\s+(.+)$/m);
