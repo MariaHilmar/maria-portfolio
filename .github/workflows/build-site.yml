@@ -1,20 +1,23 @@
-name: Deploy portfolio site
+name: Build portfolio site
 
 on:
   push:
     branches: [main]
     paths:
       - "web/**"
-      - ".github/workflows/deploy-pages.yml"
+      - ".github/workflows/build-site.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/build-site.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: build-portfolio-site-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -40,21 +43,4 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # Ajuste se o site for publicado em https://mariahilmar.github.io/maria-portfolio/
           PUBLIC_BASE: /
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: web/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

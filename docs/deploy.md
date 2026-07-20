@@ -26,17 +26,21 @@ Nenhuma variável de ambiente é necessária para o site estático na v1.
 
 ---
 
-## GitHub Pages (alternativa)
+## CI no GitHub (build)
 
-Workflow pronto em [`.github/workflows/deploy-pages.yml`](../.github/workflows/deploy-pages.yml).
+Workflow em [`.github/workflows/build-site.yml`](../.github/workflows/build-site.yml): valida `npm ci` + `npm run build` em push/PR que alteram `web/`. **Não publica** o site - produção fica na Vercel.
 
-Pré-requisitos:
+---
 
-1. Publicar este repositório em `MariaHilmar/maria-portfolio`
-2. Em **Settings → Pages**, escolher fonte **GitHub Actions**
-3. Se o site for em `https://mariahilmar.github.io/maria-portfolio/`, ajustar `base` em `web/astro.config.mjs` para `'/maria-portfolio/'` e os links absolutos (`/docs/...`) para respeitar o base
+## GitHub Pages (opcional, desativado)
 
-Enquanto o hub não estiver no GitHub, a URL canônica permanece a da Vercel.
+Se no futuro quiser hospedar em `https://mariahilmar.github.io/maria-portfolio/`:
+
+1. Habilitar **Settings → Pages → GitHub Actions**
+2. Recriar job de deploy no workflow (ou workflow separado)
+3. Ajustar `base` em `web/astro.config.mjs` para `'/maria-portfolio/'`
+
+URL canônica atual: Vercel (tabela acima).
 
 ---
 
@@ -61,5 +65,5 @@ Deploy público da API só se pedido explicitamente (e com restrições de CORS/
 - [x] Site acessível publicamente
 - [x] URL no README raiz
 - [x] URL no site (`web/`)
-- [ ] Hub versionado no GitHub (opcional, para Pages / histórico)
+- [x] Hub versionado no GitHub
 - [ ] Domínio customizado (opcional)
