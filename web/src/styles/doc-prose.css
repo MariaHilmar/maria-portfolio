@@ -1,0 +1,131 @@
+.doc-prose {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  background: rgba(247, 250, 251, 0.82);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.doc-prose :global(h1) {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.25rem;
+}
+
+.doc-prose :global(h2) {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  margin: 2.5rem 0 0.85rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.doc-prose :global(h3) {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 1.75rem 0 0.65rem;
+}
+
+.doc-prose :global(p),
+.doc-prose :global(li) {
+  color: var(--ink-soft);
+}
+
+.doc-prose :global(p) {
+  margin: 0 0 1rem;
+}
+
+.doc-prose :global(ul),
+.doc-prose :global(ol) {
+  margin: 0 0 1.25rem;
+  padding-left: 1.35rem;
+}
+
+.doc-prose :global(li + li) {
+  margin-top: 0.35rem;
+}
+
+.doc-prose :global(a) {
+  color: var(--teal-deep);
+  font-weight: 600;
+}
+
+.doc-prose :global(strong) {
+  color: var(--ink);
+}
+
+.doc-prose :global(hr) {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
+}
+
+.doc-prose :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.doc-prose :global(th),
+.doc-prose :global(td) {
+  border: 1px solid var(--line);
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.doc-prose :global(th) {
+  background: rgba(213, 232, 233, 0.55);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.doc-prose :global(code) {
+  font-size: 0.88em;
+  background: rgba(26, 107, 110, 0.1);
+  padding: 0.12em 0.38em;
+  border-radius: 4px;
+}
+
+.doc-prose :global(pre) {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.doc-prose :global(pre code) {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.doc-prose :global(blockquote) {
+  margin: 1.25rem 0;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid var(--teal);
+  background: rgba(213, 232, 233, 0.35);
+  color: var(--ink-soft);
+}
+
+.doc-prose :global(blockquote p:last-child) {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .doc-prose {
+    padding: 1.25rem 1rem 2rem;
+  }
+}

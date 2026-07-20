@@ -67,18 +67,19 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
 
   <main id="topo">
     <section class="hero wrap">
-      <p class="hero-kicker">Portfólio · Product Owner técnico</p>
+      <p class="hero-kicker">Portfólio · Product Manager / Product Owner · Dados & IA</p>
       <h1 class="hero-name">Maria Hilmar</h1>
       <p class="hero-tagline">
-        Product Owner com base técnica em Python: traduz necessidade de negócio em
-        entregas versionadas, testadas e observáveis.
+        Product Manager / Product Owner com foco em Dados e Inteligência Artificial.
+        Liderança madura em squads ágeis, com projetos hands-on em Python e FastAPI na
+        intersecção entre negócios e engenharia.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://github.com/MariaHilmar" target="_blank" rel="noreferrer"
-          >GitHub</a
+        <a class="btn btn-primary" href="/docs/case-study-juris-sync">Case study</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/mariahilmar/" target="_blank" rel="noreferrer"
+          >LinkedIn</a
         >
-        <a class="btn btn-ghost" href="/docs/case-study-juris-sync.md">Case study</a>
-        <a class="btn btn-ghost" href="#projetos">Ver JurisSync</a>
+        <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
       </div>
       <div class="hero-plane" aria-hidden="true">
         <div class="hero-orbit"></div>
@@ -91,24 +92,25 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
 
     <section id="sobre" class="section wrap reveal">
       <span class="section-label">Sobre</span>
-      <h2>Produto com profundidade técnica</h2>
+      <h2>Liderança de produto na intersecção com dados e IA</h2>
       <p class="section-lead">
-        Atuo na fronteira entre negócio e engenharia: defino escopo, priorizo sprints e
-        acompanho a qualidade da entrega com a mesma disciplina com que leio código,
-        testes e pipelines.
+        Histórico consolidado em gestão de squads ágeis e governança de software, com
+        forte viés técnico. MBA em Ciência de Dados (BI & Analytics) e projeto próprio
+        de estudo (Situação Jurídica) para consolidar autonomia em Python, APIs e
+        engenharia de dados - evidências públicas no GitHub.
       </p>
       <div class="about-grid">
         <div>
-          <h3>Foco principal</h3>
-          <p>Gestão de produto e projetos com base técnica em Python.</p>
+          <h3>Bagagem consolidada</h3>
+          <p>Backlog orientado ao ROI, OKRs, engenharia de requisitos (BDD, UML, BPMN) e governança de QA (CTAL-TM).</p>
         </div>
         <div>
-          <h3>Complementos</h3>
-          <p>Backend, automação de testes, engenharia de dados e análise.</p>
+          <h3>Projeto próprio de estudo</h3>
+          <p>Situação Jurídica (jurimetria/dados) → artefatos públicos JurisSync e MGI KPI. Não é vínculo empregatício.</p>
         </div>
         <div>
           <h3>Como trabalho</h3>
-          <p>Documentação viva, critérios de aceite e evidências verificáveis.</p>
+          <p>Documentação viva, critérios de aceite e evidências verificáveis em cada entrega.</p>
         </div>
       </div>
     </section>
@@ -117,9 +119,9 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
       <span class="section-label">Competências</span>
       <h2>Evidências, não buzzwords</h2>
       <p class="section-lead">
-        Cada competência aponta para artefatos reais no projeto JurisSync.
+        Cada competência aponta para artefatos reais nos projetos JurisSync e MGI KPI.
         Detalhamento completo em
-        <a href="/docs/competencias.md">docs/competencias.md</a>.
+        <a href="/docs/competencias">competências com evidências</a>.
       </p>
       <ul class="skills-list">
         {
@@ -136,10 +138,18 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
 
     <section id="projetos" class="section wrap reveal">
       <span class="section-label">Projetos</span>
-      <h2>JurisSync API</h2>
+      <h2>Projetos em destaque</h2>
       <p class="section-lead">
-        API REST assíncrona para monitoramento, ingestão e jurimetria de processos
-        judiciais, integrada à API Pública do DataJud (CNJ).
+        Produto próprio de estudo <strong>Situação Jurídica</strong> (jurimetria/dados jurídicos)
+        e dois ecossistemas públicos de evidência: JurisSync e MGI KPI - código, testes e
+        documentação verificável.
+      </p>
+
+      <h3 class="project-family">Situação Jurídica → JurisSync</h3>
+      <p class="project-intro">
+        Projeto próprio de Product Ownership com base técnica. A API FastAPI + dashboard Next.js
+        (JurisSync) são as evidências públicas para jurimetria e sync de processos (DataJud CNJ).
+        Avaliação local - mock ou dados reais. Não é vínculo empregatício.
       </p>
       <article class="project">
         <div class="project-main">
@@ -147,19 +157,23 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
           <ul>
             <li>Pipeline de sincronização idempotente (DataJud → validação → persistência)</li>
             <li>43 testes em 5 camadas, incluindo Testcontainers e Schemathesis</li>
+            <li>Dashboard Next.js (React + TypeScript) consumindo a API</li>
             <li>Documentação viva com rastreabilidade requisito → código → teste</li>
           </ul>
           <div class="project-links">
             <a class="btn btn-primary" href="https://github.com/MariaHilmar/juris-sync" target="_blank" rel="noreferrer"
-              >Repositório</a
+              >API</a
             >
-            <a class="btn btn-ghost" href="/docs/case-study-juris-sync.md">Case study</a>
+            <a class="btn btn-ghost" href="https://github.com/MariaHilmar/juris-sync-web" target="_blank" rel="noreferrer"
+              >Dashboard</a
+            >
+            <a class="btn btn-ghost" href="/docs/case-study-juris-sync">Case study</a>
             <a class="btn btn-ghost" href="https://github.com/MariaHilmar/juris-sync/actions/workflows/ci.yml" target="_blank" rel="noreferrer"
               >CI</a
             >
           </div>
         </div>
-        <aside class="project-meta" aria-label="Métricas do projeto">
+        <aside class="project-meta" aria-label="Métricas JurisSync">
           <div>
             <strong>43</strong>
             <span>testes</span>
@@ -178,15 +192,66 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
           </div>
         </aside>
       </article>
+
+      <h3 class="project-family">MGI KPI</h3>
+      <p class="project-intro">
+        BI de engenharia: pipeline ETL Python (GitLab → Supabase) + dashboard Next.js somente leitura
+        com KPIs, fluxo, sprint e alertas. Projeto de portfólio - não é sistema oficial do MGI.
+      </p>
+      <article class="project">
+        <div class="project-main">
+          <h3>O que entrega</h3>
+          <ul>
+            <li>ETL Python com regras de negócio em memória e upsert idempotente no Supabase</li>
+            <li>Dashboard Next.js 16 com Server Components, cache e agregações via RPC PostgreSQL</li>
+            <li>358 testes Vitest + CI com SonarCloud no dashboard</li>
+            <li>Demo em produção com autenticação Supabase</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn btn-primary" href="https://github.com/MariaHilmar/mgi-kpi-dashboard" target="_blank" rel="noreferrer"
+              >Dashboard</a
+            >
+            <a class="btn btn-ghost" href="https://github.com/MariaHilmar/mgi-kpi-pipeline" target="_blank" rel="noreferrer"
+              >Pipeline</a
+            >
+            <a class="btn btn-ghost" href="https://web-mgi-delog.vercel.app" target="_blank" rel="noreferrer"
+              >Demo live</a
+            >
+            <a class="btn btn-ghost" href="/docs/competencias">Evidências</a>
+          </div>
+        </div>
+        <aside class="project-meta" aria-label="Métricas MGI KPI">
+          <div>
+            <strong>358</strong>
+            <span>testes Vitest</span>
+          </div>
+          <div>
+            <strong>2</strong>
+            <span>repos (ETL + web)</span>
+          </div>
+          <div>
+            <strong>RPC</strong>
+            <span>agregações no Postgres</span>
+          </div>
+          <div>
+            <strong>Live</strong>
+            <span>Vercel + Supabase</span>
+          </div>
+        </aside>
+      </article>
     </section>
 
     <section id="jurimetria" class="section wrap reveal">
       <span class="section-label">Análise</span>
       <h2>Jurimetria sobre a base local</h2>
       <p class="section-lead">
-        Visualização ilustrativa dos endpoints
+        Visualização ilustrativa na vitrine dos endpoints
         <code>/stats/por-tribunal</code> e <code>/stats/por-assunto</code>.
-        Os dados abaixo são representativos do formato da API (não um dashboard ao vivo).
+        Para o dashboard ao vivo (Next.js), clone
+        <a href="https://github.com/MariaHilmar/juris-sync" target="_blank" rel="noreferrer">juris-sync</a>
+        e
+        <a href="https://github.com/MariaHilmar/juris-sync-web" target="_blank" rel="noreferrer">juris-sync-web</a>
+        e rode local - modo mock ou DataJud real.
       </p>
       <div class="charts">
         <div class="chart-block">
@@ -256,20 +321,28 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
       <span class="section-label">Contato</span>
       <h2>Vamos conversar</h2>
       <p class="section-lead">
-        Disponível para conversas sobre produto, qualidade de entrega e projetos com
+        Disponível para conversas sobre liderança de produto, dados, IA e projetos com
         profundidade técnica.
       </p>
       <div class="contact-row">
+        <a class="btn btn-primary" href="https://wa.me/5561982062117" target="_blank" rel="noreferrer"
+          >WhatsApp</a
+        >
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/mariahilmar/" target="_blank" rel="noreferrer"
+          >LinkedIn</a
+        >
         <a class="btn btn-primary" href="https://github.com/MariaHilmar" target="_blank" rel="noreferrer"
           >GitHub</a
         >
-        <a class="btn btn-ghost" href="/docs/case-study-juris-sync.md">Ler case study</a>
-        <a class="btn btn-ghost" href="/docs/competencias.md">Ver competências</a>
+        <a class="btn btn-ghost" href="mailto:mariahilmar@gmail.com">E-mail</a>
+        <a class="btn btn-ghost" href="/docs/case-study-juris-sync">Ler case study</a>
+        <a class="btn btn-ghost" href="/docs/competencias">Ver competências</a>
       </div>
       <p class="contact-hint">
         Site live:
-        <a href="https://mariahilmar-portfolio.vercel.app">mariahilmar-portfolio.vercel.app</a>.
-        LinkedIn e e-mail podem ser adicionados ao hub quando você autorizar a publicação.
+        <a href="https://mariahilmar-portfolio.vercel.app">mariahilmar-portfolio.vercel.app</a>
+        · Perfil GitHub:
+        <a href="https://github.com/MariaHilmar/MariaHilmar">MariaHilmar/MariaHilmar</a>
       </p>
     </section>
   </main>
@@ -456,6 +529,27 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     font-size: 0.95rem;
     color: var(--teal-deep) !important;
     font-weight: 600;
+  }
+
+  .project-family {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    margin: 2.5rem 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .project-family:first-of-type {
+    margin-top: 0;
+  }
+
+  .project-intro {
+    max-width: 42rem;
+    color: var(--ink-soft);
+    margin: 0 0 1.25rem;
+  }
+
+  .project + .project-family {
+    margin-top: 3rem;
   }
 
   .project {
