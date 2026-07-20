@@ -1,0 +1,716 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const skills = [
+  {
+    title: "Gestão de produto",
+    text: "Roadmap em sprints, requisitos rastreáveis, BDD e entrega incremental.",
+    evidence: "16 regras de negócio com rastreabilidade requisito → código → teste",
+  },
+  {
+    title: "Desenvolvimento",
+    text: "APIs REST async, arquitetura em camadas, Docker e CI/CD.",
+    evidence: "FastAPI + SQLAlchemy 2.0 + OpenAPI",
+  },
+  {
+    title: "Automação de testes",
+    text: "Pirâmide em 5 camadas, Testcontainers e contract testing.",
+    evidence: "43 testes, cobertura ~89,9%",
+  },
+  {
+    title: "Engenharia de dados",
+    text: "Pipeline ETL idempotente, migrações versionadas e integração externa.",
+    evidence: "DataJud → RAG → validação → upsert",
+  },
+  {
+    title: "Análise",
+    text: "Jurimetria via agregações SQL sobre a base local.",
+    evidence: "Endpoints stats por tribunal e assunto",
+  },
+];
+
+const sprints = [
+  { n: "01", title: "Setup", detail: "Boilerplate FastAPI, config e health check" },
+  { n: "02", title: "Banco", detail: "Modelo relacional e migrations Alembic" },
+  { n: "03", title: "DataJud", detail: "Cliente real, mock e pipeline de sync" },
+  { n: "04", title: "Testes", detail: "Suíte em camadas e cobertura ≥ 85%" },
+  { n: "05", title: "CI/CD", detail: "Lint, testes e documentação" },
+];
+
+const tribunalStats = [
+  { label: "TJSP", value: 42 },
+  { label: "TJRJ", value: 28 },
+  { label: "TJMG", value: 18 },
+  { label: "TRF3", value: 12 },
+];
+
+const assuntoStats = [
+  { label: "Direito civil", value: 36 },
+  { label: "Direito do consumidor", value: 24 },
+  { label: "Direito trabalhista", value: 22 },
+  { label: "Outros", value: 18 },
+];
+
+const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
+---
+
+<BaseLayout>
+  <header class="nav wrap">
+    <a class="brand" href="#topo">Maria Hilmar</a>
+    <nav aria-label="Principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#competencias">Competências</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="topo">
+    <section class="hero wrap">
+      <p class="hero-kicker">Portfólio · Product Owner técnico</p>
+      <h1 class="hero-name">Maria Hilmar</h1>
+      <p class="hero-tagline">
+        Product Owner com base técnica em Python: traduz necessidade de negócio em
+        entregas versionadas, testadas e observáveis.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://github.com/MariaHilmar" target="_blank" rel="noreferrer"
+          >GitHub</a
+        >
+        <a class="btn btn-ghost" href="/docs/case-study-juris-sync.md">Case study</a>
+        <a class="btn btn-ghost" href="#projetos">Ver JurisSync</a>
+      </div>
+      <div class="hero-plane" aria-hidden="true">
+        <div class="hero-orbit"></div>
+        <div class="hero-block">
+          <span>JurisSync</span>
+          <strong>API · ETL · Jurimetria</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section wrap reveal">
+      <span class="section-label">Sobre</span>
+      <h2>Produto com profundidade técnica</h2>
+      <p class="section-lead">
+        Atuo na fronteira entre negócio e engenharia: defino escopo, priorizo sprints e
+        acompanho a qualidade da entrega com a mesma disciplina com que leio código,
+        testes e pipelines.
+      </p>
+      <div class="about-grid">
+        <div>
+          <h3>Foco principal</h3>
+          <p>Gestão de produto e projetos com base técnica em Python.</p>
+        </div>
+        <div>
+          <h3>Complementos</h3>
+          <p>Backend, automação de testes, engenharia de dados e análise.</p>
+        </div>
+        <div>
+          <h3>Como trabalho</h3>
+          <p>Documentação viva, critérios de aceite e evidências verificáveis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="competencias" class="section wrap reveal">
+      <span class="section-label">Competências</span>
+      <h2>Evidências, não buzzwords</h2>
+      <p class="section-lead">
+        Cada competência aponta para artefatos reais no projeto JurisSync.
+        Detalhamento completo em
+        <a href="/docs/competencias.md">docs/competencias.md</a>.
+      </p>
+      <ul class="skills-list">
+        {
+          skills.map((skill) => (
+            <li>
+              <h3>{skill.title}</h3>
+              <p>{skill.text}</p>
+              <p class="skill-evidence">{skill.evidence}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section id="projetos" class="section wrap reveal">
+      <span class="section-label">Projetos</span>
+      <h2>JurisSync API</h2>
+      <p class="section-lead">
+        API REST assíncrona para monitoramento, ingestão e jurimetria de processos
+        judiciais, integrada à API Pública do DataJud (CNJ).
+      </p>
+      <article class="project">
+        <div class="project-main">
+          <h3>O que entrega</h3>
+          <ul>
+            <li>Pipeline de sincronização idempotente (DataJud → validação → persistência)</li>
+            <li>43 testes em 5 camadas, incluindo Testcontainers e Schemathesis</li>
+            <li>Documentação viva com rastreabilidade requisito → código → teste</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn btn-primary" href="https://github.com/MariaHilmar/juris-sync" target="_blank" rel="noreferrer"
+              >Repositório</a
+            >
+            <a class="btn btn-ghost" href="/docs/case-study-juris-sync.md">Case study</a>
+            <a class="btn btn-ghost" href="https://github.com/MariaHilmar/juris-sync/actions/workflows/ci.yml" target="_blank" rel="noreferrer"
+              >CI</a
+            >
+          </div>
+        </div>
+        <aside class="project-meta" aria-label="Métricas do projeto">
+          <div>
+            <strong>43</strong>
+            <span>testes</span>
+          </div>
+          <div>
+            <strong>~90%</strong>
+            <span>cobertura</span>
+          </div>
+          <div>
+            <strong>5</strong>
+            <span>camadas de teste</span>
+          </div>
+          <div>
+            <strong>5</strong>
+            <span>sprints entregues</span>
+          </div>
+        </aside>
+      </article>
+    </section>
+
+    <section id="jurimetria" class="section wrap reveal">
+      <span class="section-label">Análise</span>
+      <h2>Jurimetria sobre a base local</h2>
+      <p class="section-lead">
+        Visualização ilustrativa dos endpoints
+        <code>/stats/por-tribunal</code> e <code>/stats/por-assunto</code>.
+        Os dados abaixo são representativos do formato da API (não um dashboard ao vivo).
+      </p>
+      <div class="charts">
+        <div class="chart-block">
+          <h3>Processos por tribunal</h3>
+          <ul class="bars" aria-label="Distribuição por tribunal">
+            {
+              tribunalStats.map((item) => (
+                <li>
+                  <div class="bar-label">
+                    <span>{item.label}</span>
+                    <span>{item.value}</span>
+                  </div>
+                  <div class="bar-track">
+                    <div
+                      class="bar-fill"
+                      style={`width: ${(item.value / maxTribunal) * 100}%`}
+                    />
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="chart-block">
+          <h3>Processos por assunto</h3>
+          <ul class="stack" aria-label="Distribuição por assunto">
+            {
+              assuntoStats.map((item) => (
+                <li>
+                  <span class="stack-swatch" style={`flex: ${item.value}`} />
+                  <span class="stack-caption">{item.label} · {item.value}%</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo" class="section wrap reveal">
+      <span class="section-label">Processo</span>
+      <h2>Como a entrega aconteceu</h2>
+      <p class="section-lead">
+        Cinco sprints com qualidade como requisito: lint, testes e integração no CI a
+        cada push.
+      </p>
+      <ol class="timeline">
+        {
+          sprints.map((sprint) => (
+            <li>
+              <span class="timeline-n">{sprint.n}</span>
+              <div>
+                <h3>{sprint.title}</h3>
+                <p>{sprint.detail}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="process-note">
+        CI em 3 jobs: Lint (Ruff, Black, Mypy), Test (pytest + cobertura) e Integration
+        (Testcontainers + Schemathesis).
+      </p>
+    </section>
+
+    <section id="contato" class="section wrap reveal">
+      <span class="section-label">Contato</span>
+      <h2>Vamos conversar</h2>
+      <p class="section-lead">
+        Disponível para conversas sobre produto, qualidade de entrega e projetos com
+        profundidade técnica.
+      </p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="https://github.com/MariaHilmar" target="_blank" rel="noreferrer"
+          >GitHub</a
+        >
+        <a class="btn btn-ghost" href="/docs/case-study-juris-sync.md">Ler case study</a>
+        <a class="btn btn-ghost" href="/docs/competencias.md">Ver competências</a>
+      </div>
+      <p class="contact-hint">
+        Site live:
+        <a href="https://mariahilmar-portfolio.vercel.app">mariahilmar-portfolio.vercel.app</a>.
+        LinkedIn e e-mail podem ser adicionados ao hub quando você autorizar a publicação.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p>
+      Maria Hilmar ·
+      <a href="https://mariahilmar-portfolio.vercel.app">Live</a>
+      · Conteúdo alinhado a <code>git-portfolio</code>
+    </p>
+  </footer>
+</BaseLayout>
+
+<style>
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 0 0.5rem;
+  }
+
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .nav nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.1rem;
+  }
+
+  .nav nav a {
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+
+  .nav nav a:hover {
+    color: var(--teal-deep);
+  }
+
+  .hero {
+    min-height: calc(100vh - 4rem);
+    display: grid;
+    align-content: center;
+    padding: 3rem 0 4rem;
+    position: relative;
+  }
+
+  .hero-kicker {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 1rem;
+    animation: rise 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 10vw, 6.4rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0 0 1.25rem;
+    max-width: 10ch;
+    animation: rise 0.9s ease 0.08s both;
+  }
+
+  .hero-tagline {
+    max-width: 34rem;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--ink-soft);
+    margin: 0 0 2rem;
+    animation: rise 1s ease 0.16s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    animation: rise 1.05s ease 0.24s both;
+  }
+
+  .hero-plane {
+    position: absolute;
+    right: 0;
+    bottom: 12%;
+    width: min(340px, 42vw);
+    aspect-ratio: 1;
+    pointer-events: none;
+  }
+
+  .hero-orbit {
+    position: absolute;
+    inset: 8%;
+    border: 1px solid rgba(26, 107, 110, 0.28);
+    border-radius: 40% 60% 55% 45%;
+    animation: drift 12s ease-in-out infinite;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(26, 107, 110, 0.18), transparent 55%),
+      radial-gradient(circle at 70% 70%, rgba(184, 149, 106, 0.16), transparent 50%);
+  }
+
+  .hero-block {
+    position: absolute;
+    left: 18%;
+    top: 36%;
+    padding: 1rem 1.15rem;
+    background: rgba(247, 250, 251, 0.82);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(6px);
+    animation: floaty 5.5s ease-in-out infinite;
+  }
+
+  .hero-block span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .hero-block strong {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .about-grid h3,
+  .skills-list h3,
+  .project h3,
+  .chart-block h3,
+  .timeline h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .about-grid p,
+  .skills-list p,
+  .timeline p {
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  .skills-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .skills-list li {
+    display: grid;
+    grid-template-columns: 12rem 1fr 1.2fr;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .skills-list li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .skill-evidence {
+    font-size: 0.95rem;
+    color: var(--teal-deep) !important;
+    font-weight: 600;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .project-main {
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    background: rgba(247, 250, 251, 0.7);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+  }
+
+  .project-main ul {
+    margin: 0 0 1.5rem;
+    padding-left: 1.1rem;
+    color: var(--ink-soft);
+  }
+
+  .project-main li + li {
+    margin-top: 0.45rem;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .project-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .project-meta div {
+    padding: 1.1rem;
+    border: 1px solid var(--line);
+    background: rgba(213, 232, 233, 0.45);
+    border-radius: var(--radius);
+  }
+
+  .project-meta strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .project-meta span {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  .charts {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+  }
+
+  .chart-block {
+    padding: 1.35rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(247, 250, 251, 0.75);
+  }
+
+  .bars {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.92rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .bar-track {
+    height: 10px;
+    background: var(--teal-soft);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--teal-deep));
+    border-radius: inherit;
+    transform-origin: left;
+    animation: grow 1.1s ease both;
+  }
+
+  .stack {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .stack li {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .stack-swatch {
+    display: block;
+    height: 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--teal-soft), var(--teal), var(--sand));
+  }
+
+  .stack-caption {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  code {
+    font-size: 0.9em;
+    background: rgba(26, 107, 110, 0.08);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .timeline-n {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--teal);
+  }
+
+  .process-note,
+  .contact-hint {
+    margin-top: 1.5rem;
+    color: var(--ink-soft);
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes drift {
+    0%,
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(8deg) scale(1.03);
+    }
+  }
+
+  @keyframes floaty {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero-plane {
+      display: none;
+    }
+
+    .about-grid,
+    .project,
+    .charts {
+      grid-template-columns: 1fr;
+    }
+
+    .skills-list li {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero {
+      min-height: auto;
+      padding-top: 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-kicker,
+    .hero-name,
+    .hero-tagline,
+    .hero-cta,
+    .hero-orbit,
+    .hero-block,
+    .bar-fill {
+      animation: none;
+    }
+  }
+</style>

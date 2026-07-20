@@ -1,0 +1,45 @@
+# Ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+.pytest_cache/
+.hypothesis/
+.mypy_cache/
+.coverage
+htmlcov/
+*.db
+
+# Node / frontend (web/)
+web/node_modules/
+web/dist/
+web/.astro/
+node_modules/
+dist/
+.astro/
+
+# IDE e SO
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+
+# Arquivos locais do hub (não versionar por padrão)
+Product Owner - Maria Hilmar Gomes da Silva.pdf
+
+# Cópia local do projeto âncora (repo próprio no GitHub)
+juris-sync/
+
+# Vercel local link
+.vercel/
+web/.vercel/
