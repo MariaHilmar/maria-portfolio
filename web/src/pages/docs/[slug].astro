@@ -5,7 +5,12 @@ import fs from "node:fs";
 import path from "node:path";
 
 export function getStaticPaths() {
-  return ["competencias", "case-study-juris-sync", "deploy"].map((slug) => ({
+  return [
+    "competencias",
+    "case-study-juris-sync",
+    "case-study-situacao-juridica",
+    "deploy",
+  ].map((slug) => ({
     params: { slug },
   }));
 }

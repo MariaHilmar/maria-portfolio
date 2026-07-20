@@ -238,7 +238,7 @@ graph LR
 | Repositório | Visibilidade | Incluir em competencias.md? |
 |-------------|--------------|----------------------------|
 | [mgi-kpi-pipeline](https://github.com/MariaHilmar/mgi-kpi-pipeline) | Público | Sim - citado na Parte B (par do dashboard) |
-| `sj-*` (Situação Jurídica) | Privado | Não recomendado sem tornar público ou redigir case anonimizado |
+| Situação Jurídica (produto) | Privado | Narrativa pública em [`case-study-situacao-juridica.md`](case-study-situacao-juridica.md) - sem links de código |
 | `contratos-v2-analise` | Público | Opcional - incluir só se README e escopo estiverem prontos para avaliação |
 | Demais privados | Privado | Evitar links - recrutador não consegue verificar |
 

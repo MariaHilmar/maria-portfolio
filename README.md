@@ -18,7 +18,9 @@
 
 Este é o **hub central do meu portfólio no Git**. Aqui concentro narrativa profissional, documentação com evidências e o site em [`web/`](web/).
 
-Os projetos técnicos ([JurisSync API](https://github.com/MariaHilmar/juris-sync) e [JurisSync Web](https://github.com/MariaHilmar/juris-sync-web)) são **artefatos de estudo e demonstração** ligados ao produto próprio **Situação Jurídica** (jurimetria/dados jurídicos): pensados para avaliação local (clone + run), não para operação em produção. Sem autenticação de usuários finais; modo **mock** (padrão) ou **DataJud real** (chave do próprio testador).
+**Situação Jurídica** é produto próprio de estudo (código **privado**): visão e mapa de capacidades em [`docs/case-study-situacao-juridica.md`](docs/case-study-situacao-juridica.md).
+
+Os projetos técnicos ([JurisSync API](https://github.com/MariaHilmar/juris-sync) e [JurisSync Web](https://github.com/MariaHilmar/juris-sync-web)) são **artefatos públicos de portfólio** no domínio de jurimetria - recortes independentes para clone + run, **não** o produto Situação Jurídica. Modo **mock** (padrão) ou **DataJud real** (chave do próprio testador).
 
 Sou Product Manager / Product Owner com histórico em gestão de squads ágeis e governança de software. Concluí **MBA em Ciência de Dados (BI & Analytics)** e venho consolidando autonomia técnica com projetos hands-on em Python e FastAPI, na intersecção entre negócios, dados, IA e engenharia.
 
@@ -30,7 +32,8 @@ Sou Product Manager / Product Owner com histórico em gestão de squads ágeis e
 |---|---|
 | **Posicionamento** | Product Manager / Product Owner - Dados, IA e base técnica em Python |
 | **Bagagem consolidada** | Gestão de backlog (ROI), métricas ágeis/negócio (OKRs, Velocity, Lead Time), engenharia de requisitos (BDD, UML, BPMN), governança de testes/QA (CTAL-TM) |
-| **Projeto próprio de estudo** | Situação Jurídica (produto) → evidências públicas JurisSync e MGI KPI |
+| **Produto próprio (privado)** | Situação Jurídica - case narrativo; sem repositório público do produto |
+| **Evidências públicas** | JurisSync e MGI KPI (recorte técnico, não clone do produto) |
 | **Stack em prática** | Python, FastAPI, PostgreSQL, Supabase, Redis, Docker, fundamentos de ML (XGBoost) e busca vetorial (pgvector) |
 | **Público-alvo deste hub** | Recrutadores e hiring managers de produto/tech; tech leads que avaliam entrega, qualidade e profundidade técnica |
 
@@ -55,13 +58,16 @@ Detalhamento completo com evidências verificáveis: **[`docs/competencias.md`](
 
 ## Projetos de estudo e portfólio técnico
 
-### Situação Jurídica (projeto próprio)
+### Situação Jurídica (produto próprio - código privado)
 
-Produto próprio de jurimetria e dados jurídicos, em desenvolvimento como estudo aplicado de Product Ownership com base técnica. **Não é vínculo empregatício.** Os repositórios públicos abaixo são as evidências técnicas desse trabalho.
+Produto próprio de jurimetria e dados jurídicos. **Não é vínculo empregatício.** Código e operação não são públicos.
+
+- **Case (narrativa + mapa de capacidades):** [`docs/case-study-situacao-juridica.md`](docs/case-study-situacao-juridica.md)
+- **Site:** [seção Produto](https://mariahilmar-portfolio.vercel.app/#produto)
 
 ### JurisSync - API Backend (`juris-sync`)
 
-Estudo prático focado em arquitetura de APIs assíncronas com FastAPI, persistência de dados e testes automatizados em múltiplas camadas.
+Projeto **público de portfólio** (recorte independente): arquitetura de APIs assíncronas com FastAPI, persistência e testes em múltiplas camadas. Não é o Situação Jurídica.
 
 API REST assíncrona para monitoramento, ingestão e jurimetria de processos judiciais, integrada à [API Pública do DataJud (CNJ)](https://datajud-wiki.cnj.jus.br/api-publica/).
 
