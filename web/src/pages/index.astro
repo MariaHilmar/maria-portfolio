@@ -12,17 +12,16 @@ const capabilities = [
 ---
 
 <BaseLayout>
-  <header class="nav wrap">
-    <a class="brand" href="#topo">Maria Hilmar</a>
-    <nav aria-label="Principal">
-      <a href="#produto">Produto</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
-
   <main id="topo">
     <section class="hero">
+      <header class="nav wrap">
+        <a class="brand" href="#topo">Maria Hilmar</a>
+        <nav aria-label="Principal">
+          <a href="#produto">Produto</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </header>
       <div class="hero-media" aria-hidden="true">
         <img
           src="/visuals/hero-arch.svg"
@@ -40,7 +39,7 @@ const capabilities = [
           testáveis, com proximidade real a Python, APIs e pipelines.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#produto">Produto próprio</a>
+          <a class="btn btn-hero" href="#produto">Produto próprio</a>
           <a class="btn btn-ghost hero-ghost" href="#projetos">Evidências públicas</a>
         </div>
       </div>
@@ -215,16 +214,19 @@ const capabilities = [
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 1.25rem 0;
-    position: relative;
-    z-index: 2;
+    padding: 1.1rem 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
   }
 
   .brand {
     font-family: var(--font-display);
     font-weight: 800;
     font-size: 1.05rem;
-    color: var(--ink);
+    color: #f7fafb;
     text-decoration: none;
     letter-spacing: -0.02em;
   }
@@ -236,20 +238,20 @@ const capabilities = [
   }
 
   .nav a {
-    color: var(--ink-soft);
+    color: rgba(247, 250, 251, 0.82);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
   }
 
   .nav a:hover {
-    color: var(--teal);
+    color: #9ed0d2;
   }
 
   /* Hero: full-bleed visual plane */
   .hero {
     position: relative;
-    min-height: min(88vh, 760px);
+    min-height: min(92vh, 820px);
     display: grid;
     align-items: end;
     overflow: hidden;
@@ -274,16 +276,26 @@ const capabilities = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, rgba(19, 32, 40, 0.92) 0%, rgba(19, 32, 40, 0.72) 42%, rgba(19, 32, 40, 0.28) 100%),
-      linear-gradient(180deg, rgba(19, 32, 40, 0.2) 0%, rgba(19, 32, 40, 0.55) 100%);
+      linear-gradient(90deg, rgba(19, 32, 40, 0.94) 0%, rgba(19, 32, 40, 0.78) 38%, rgba(19, 32, 40, 0.22) 68%, rgba(19, 32, 40, 0.08) 100%),
+      linear-gradient(180deg, rgba(19, 32, 40, 0.15) 0%, rgba(19, 32, 40, 0.35) 100%);
   }
 
   .hero-content {
     position: relative;
     z-index: 1;
-    padding: 4rem 0 4.5rem;
+    padding: 6.5rem 0 4.5rem;
     max-width: min(100% - 2rem, var(--max));
     animation: rise 0.9s ease both;
+  }
+
+  .btn-hero {
+    background: #f7fafb;
+    color: var(--ink);
+  }
+
+  .btn-hero:hover {
+    background: #d5e8e9;
+    color: var(--ink);
   }
 
   .hero-kicker {
