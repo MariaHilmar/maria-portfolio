@@ -2,24 +2,16 @@ $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
 $source = Join-Path $root "docs"
-$target = Join-Path $root "web\public\docs"
 
-New-Item -ItemType Directory -Force -Path $target | Out-Null
+Write-Host "Docs fonte: $source"
+Write-Host "O site Astro le os arquivos em docs/ no build (src/pages/docs/[slug].astro)."
+Write-Host "Nao e mais necessario copiar para web/public/docs."
 
-$files = @(
-  "case-study-juris-sync.md",
-  "competencias.md",
-  "deploy.md"
-)
-
-foreach ($file in $files) {
-  $from = Join-Path $source $file
-  if (-not (Test-Path $from)) {
-    Write-Warning "Arquivo ausente: $from"
-    continue
-  }
-  Copy-Item $from (Join-Path $target $file) -Force
-  Write-Host "Copiado: $file"
+# Remove copias antigas que serviam Markdown cru sem layout
+$legacy = Join-Path $root "web\public\docs"
+if (Test-Path $legacy) {
+  Remove-Item $legacy -Recurse -Force
+  Write-Host "Removido: web/public/docs (evita URLs .md sem design)"
 }
 
-Write-Host "Docs sincronizados em web/public/docs/"
+Write-Host "OK - edite maria-portfolio/docs/*.md e rode npm run build em web/"

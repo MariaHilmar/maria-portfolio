@@ -1,6 +1,8 @@
-# Case study: JurisSync API
+# Case study: JurisSync
 
-> **Projeto âncora do portfólio** | [Site live](https://mariahilmar-portfolio.vercel.app) | [Repositório](https://github.com/MariaHilmar/juris-sync) | [Documentação de requisitos](../../juris-sync/docs/requisitos.md)
+> **Projeto âncora do portfólio** | [Site live](https://mariahilmar-portfolio.vercel.app) | [API](https://github.com/MariaHilmar/juris-sync) | [Dashboard](https://github.com/MariaHilmar/juris-sync-web) | [Guia do testador](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md)
+
+**Escopo:** artefatos exclusivos de portfólio para demonstração e avaliação local (clone + run). Não são serviços em produção. Sem autenticação de usuários finais.
 
 ---
 
@@ -51,7 +53,16 @@ Atuação como **Product Owner com base técnica**: definição do escopo, prior
 - Autenticação de usuários finais (JWT preparado na config, sem endpoints de login)
 - Notificações de mudança de andamento
 - Edição manual de processos
-- Dashboard visual (endpoints de stats existem; visualização ilustrativa no [site do portfólio](https://mariahilmar-portfolio.vercel.app/#jurimetria))
+- Deploy público da API como serviço contínuo (a avaliação esperada é local)
+
+### Fontes de dados (mock vs real)
+
+| Modo | Quando | Como identificar |
+|------|--------|------------------|
+| **Mock (padrão)** | Sem `DATAJUD_API_KEY` | `/health` → `mock_mode`; badge "Mock (demo)" no dashboard |
+| **Real (DataJud)** | Com chave CNJ do testador | `/health` → `configured`; use CNJs reais |
+
+Quem avalia o portfólio pode clonar os repos, usar o mock ou configurar a própria chave. Passo a passo: [Guia do testador](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md).
 
 ---
 
@@ -59,7 +70,12 @@ Atuação como **Product Owner com base técnica**: definição do escopo, prior
 
 ### Visão geral
 
-O **JurisSync** é uma API REST assíncrona (FastAPI) que implementa um pipeline de sincronização idempotente entre a API do DataJud e um banco relacional local (PostgreSQL em produção, SQLite em desenvolvimento).
+O **JurisSync** é um produto técnico de portfólio em duas partes:
+
+1. **API** REST assíncrona (FastAPI) - pipeline de sincronização idempotente entre a API do DataJud (ou mock) e um banco relacional local (SQLite em desenvolvimento; PostgreSQL opcional via Compose)
+2. **Dashboard** ([juris-sync-web](https://github.com/MariaHilmar/juris-sync-web)) - Next.js + React + TypeScript consumindo a API (jurimetria, lista, detalhe, sync)
+
+A [vitrine Astro](https://mariahilmar-portfolio.vercel.app) (`maria-portfolio`) apresenta o case study; o dashboard Next é a evidência de frontend de mercado, rodando localmente junto com a API.
 
 ### Componentes principais
 
@@ -70,6 +86,7 @@ O **JurisSync** é uma API REST assíncrona (FastAPI) que implementa um pipeline
 | `JurisSyncService` | Orquestra extração, enriquecimento, validação e persistência |
 | API `/api/v1/processos` | Sync, listagem, detalhe e endpoints de jurimetria |
 | Alembic | Versionamento de schema (`processos`, `movimentacoes`) |
+| `juris-sync-web` | UI Next.js: dashboard, processos, timeline |
 
 ### Pipeline ETL (sincronização)
 
@@ -252,7 +269,7 @@ Workflow: [`.github/workflows/ci.yml`](https://github.com/MariaHilmar/juris-sync
 | Mock determinístico acelera muito o ciclo de desenvolvimento | Manter para demos públicas sem chave CNJ |
 | RAG em memória resolve normalização simples, mas não escala | Evoluir para embeddings + vector store se o domínio crescer |
 | Documentação viva exige disciplina, mas paga na rastreabilidade | Replicar o modelo em novos projetos do portfólio |
-| Jurimetria via SQL é suficiente para MVP | Visualização ilustrativa publicada no [site do portfólio](https://mariahilmar-portfolio.vercel.app/#jurimetria) |
+| Jurimetria via SQL é suficiente para MVP | Dashboard Next.js (`juris-sync-web`) + ilustração no [site](https://mariahilmar-portfolio.vercel.app/#jurimetria) |
 
 ---
 
@@ -260,27 +277,40 @@ Workflow: [`.github/workflows/ci.yml`](https://github.com/MariaHilmar/juris-sync
 
 | Recurso | URL |
 |---------|-----|
-| Site do portfólio | https://mariahilmar-portfolio.vercel.app |
-| Repositório | https://github.com/MariaHilmar/juris-sync |
+| Site do portfólio (vitrine Astro) | https://mariahilmar-portfolio.vercel.app |
+| Hub `maria-portfolio` | https://github.com/MariaHilmar/maria-portfolio |
+| API `juris-sync` | https://github.com/MariaHilmar/juris-sync |
+| Dashboard `juris-sync-web` | https://github.com/MariaHilmar/juris-sync-web |
+| Guia do testador (mock vs real) | https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md |
 | Documentação de requisitos | [`juris-sync/docs/requisitos.md`](../../juris-sync/docs/requisitos.md) |
-| Swagger UI (local) | http://localhost:8000/docs (após `python app/main.py`) |
-| ReDoc (local) | http://localhost:8000/redoc |
-| Workflow CI | https://github.com/MariaHilmar/juris-sync/actions/workflows/ci.yml |
+| Swagger UI (local) | http://localhost:8000/docs |
+| Workflow CI (API) | https://github.com/MariaHilmar/juris-sync/actions/workflows/ci.yml |
 | API DataJud (CNJ) | https://datajud-wiki.cnj.jus.br/api-publica/ |
 
 ### Como rodar localmente (resumo)
 
+Avaliação esperada: **clone + ambiente local**. Passo a passo completo (API + dashboard, mock ou real): [Guia do testador](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md).
+
 ```powershell
+# API
 cd juris-sync
 python -m venv .venv
-.venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements-dev.txt
 copy .env.example .env
-alembic upgrade head
-python app/main.py
+python -m alembic upgrade head
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+# opcional (mock rico): python scripts/seed_demo.py
+
+# Dashboard (outro terminal)
+cd juris-sync-web
+copy .env.example .env.local
+npm install
+npm run dev
 ```
 
-API em http://localhost:8000 | Swagger em http://localhost:8000/docs
+- API: http://localhost:8000/docs  
+- Dashboard: http://localhost:3000  
 
 ---
 

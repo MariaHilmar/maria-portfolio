@@ -40,17 +40,19 @@ Enquanto o hub não estiver no GitHub, a URL canônica permanece a da Vercel.
 
 ---
 
-## API JurisSync (opcional - Fase 5b)
+## API e dashboard JurisSync
 
-**Não implantada nesta fase.** Deploy público da API só se pedido explicitamente.
+**Artefatos de portfólio - avaliação local.** Não há deploy público obrigatório da API nem do dashboard Next.js.
 
-Se for feito no futuro:
+| Peça | Repo | Como avaliar |
+|------|------|--------------|
+| API | [juris-sync](https://github.com/MariaHilmar/juris-sync) | Clone + uvicorn local; mock sem chave |
+| Dashboard | [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) | Clone + `npm run dev`; aponta para `localhost:8000` |
+| Guia | [guia-do-testador.md](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md) | Mock vs DataJud real |
 
-- Usar modo mock (`DATAJUD_API_KEY` vazio)
-- Documentar cold start e custos (Railway/Render)
-- Expor apenas `GET /health` e endpoints de leitura com rate limit
+O site Astro neste repo (`web/`) é a **vitrine**; o dashboard Next é a **evidência de frontend**, rodando na máquina de quem testa.
 
-Repo da API: https://github.com/MariaHilmar/juris-sync
+Deploy público da API só se pedido explicitamente (e com restrições de CORS/rate limit).
 
 ---
 
