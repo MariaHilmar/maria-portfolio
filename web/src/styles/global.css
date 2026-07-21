@@ -81,6 +81,20 @@ img {
   padding: 5rem 0;
 }
 
+:where(section[id], [id="topo"]) {
+  scroll-margin-top: 4.5rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+}
+
 .section-label {
   display: block;
   font-family: var(--font-display);
