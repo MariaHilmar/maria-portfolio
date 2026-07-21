@@ -1,6 +1,6 @@
 ---
 import DocLayout from "../../layouts/DocLayout.astro";
-import { marked } from "marked";
+import { marked, Renderer } from "marked";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -9,6 +9,7 @@ export function getStaticPaths() {
     "competencias",
     "case-study-juris-sync",
     "case-study-paycore",
+    "case-study-mgi-kpi",
     "case-study-situacao-juridica",
     "deploy",
   ].map((slug) => ({
@@ -26,7 +27,15 @@ const descriptionMatch = markdown.split("\n").find((line) => line.trim() && !lin
 const description = descriptionMatch?.replace(/\*\*/g, "").slice(0, 160) ?? "Documentação do portfólio.";
 
 marked.setOptions({ gfm: true, breaks: false });
-const html = await marked.parse(markdown);
+
+const renderer = new Renderer();
+renderer.link = function ({ href, title, tokens }) {
+  const text = this.parser.parseInline(tokens);
+  const titleAttr = title ? ` title="${title}"` : "";
+  return `<a href="${href}"${titleAttr} target="_blank" rel="noopener noreferrer">${text}</a>`;
+};
+
+const html = await marked.parse(markdown, { renderer });
 ---
 
 <DocLayout title={title} description={description}>
