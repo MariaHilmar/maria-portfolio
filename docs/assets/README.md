@@ -6,7 +6,7 @@ Evidências visuais referenciadas no [case study](../case-study-juris-sync.md).
 
 | Evidência | Referência |
 |-----------|------------|
-| Site do portfólio | https://mariahilmar-portfolio.vercel.app |
+| Site do portfólio | https://mariahilmar.vercel.app |
 | CI (badge) | https://github.com/MariaHilmar/juris-sync/actions/workflows/ci.yml/badge.svg |
 | Cobertura (badge) | ~89% no README do JurisSync |
 | Jurimetria ilustrativa | Seção Análise do site (`#jurimetria`) |

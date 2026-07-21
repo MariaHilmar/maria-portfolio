@@ -9,7 +9,7 @@ Este documento reúne **evidências verificáveis** dos projetos de portfólio p
 
 Os projetos são **artefatos de portfólio** (demo local ou deploy com auth), não serviços oficiais de órgãos públicos nem produtos em produção com dados sensíveis versionados.
 
-**Case study JurisSync:** [`case-study-juris-sync.md`](case-study-juris-sync.md) · **Site:** [mariahilmar-portfolio.vercel.app](https://mariahilmar-portfolio.vercel.app) · **Guia do testador JurisSync:** [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md) · **Demo MGI KPI:** [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app)
+**Case study JurisSync:** [`case-study-juris-sync.md`](case-study-juris-sync.md) · **Site:** [mariahilmar.vercel.app](https://mariahilmar.vercel.app) · **Guia do testador JurisSync:** [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md) · **Demo MGI KPI:** [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app)
 
 ---
 
@@ -248,7 +248,7 @@ graph LR
 
 | Item | Status |
 |------|--------|
-| Site live | https://mariahilmar-portfolio.vercel.app |
+| Site live | https://mariahilmar.vercel.app |
 | Dashboard Next.js (JurisSync) | Repo [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) - demo local |
 | Demo MGI KPI | [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app) (auth Supabase) |
 | Screenshots locais (Swagger, CI) | Instruções em [`docs/assets/README.md`](assets/README.md) |

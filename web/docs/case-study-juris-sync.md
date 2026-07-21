@@ -1,6 +1,6 @@
 # Case study: JurisSync
 
-> **Projeto âncora do portfólio** | [Site live](https://mariahilmar-portfolio.vercel.app) | [API](https://github.com/MariaHilmar/juris-sync) | [Dashboard](https://github.com/MariaHilmar/juris-sync-web) | [Guia do testador](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md)
+> **Projeto âncora do portfólio** | [Site live](https://mariahilmar.vercel.app) | [API](https://github.com/MariaHilmar/juris-sync) | [Dashboard](https://github.com/MariaHilmar/juris-sync-web) | [Guia do testador](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md)
 
 **Escopo:** artefatos exclusivos de portfólio para demonstração e avaliação local (clone + run). Não são serviços em produção. Sem autenticação de usuários finais.
 
@@ -75,7 +75,7 @@ O **JurisSync** é um produto técnico de portfólio em duas partes:
 1. **API** REST assíncrona (FastAPI) - pipeline de sincronização idempotente entre a API do DataJud (ou mock) e um banco relacional local (SQLite em desenvolvimento; PostgreSQL opcional via Compose)
 2. **Dashboard** ([juris-sync-web](https://github.com/MariaHilmar/juris-sync-web)) - Next.js + React + TypeScript consumindo a API (jurimetria, lista, detalhe, sync)
 
-A [vitrine Astro](https://mariahilmar-portfolio.vercel.app) (`maria-portfolio`) apresenta o case study; o dashboard Next é a evidência de frontend de mercado, rodando localmente junto com a API.
+A [vitrine Astro](https://mariahilmar.vercel.app) (`maria-portfolio`) apresenta o case study; o dashboard Next é a evidência de frontend de mercado, rodando localmente junto com a API.
 
 ### Componentes principais
 
@@ -269,7 +269,7 @@ Workflow: [`.github/workflows/ci.yml`](https://github.com/MariaHilmar/juris-sync
 | Mock determinístico acelera muito o ciclo de desenvolvimento | Manter para demos públicas sem chave CNJ |
 | RAG em memória resolve normalização simples, mas não escala | Evoluir para embeddings + vector store se o domínio crescer |
 | Documentação viva exige disciplina, mas paga na rastreabilidade | Replicar o modelo em novos projetos do portfólio |
-| Jurimetria via SQL é suficiente para MVP | Dashboard Next.js (`juris-sync-web`) + ilustração no [site](https://mariahilmar-portfolio.vercel.app/#jurimetria) |
+| Jurimetria via SQL é suficiente para MVP | Dashboard Next.js (`juris-sync-web`) + ilustração no [site](https://mariahilmar.vercel.app/#jurimetria) |
 
 ---
 
@@ -277,7 +277,7 @@ Workflow: [`.github/workflows/ci.yml`](https://github.com/MariaHilmar/juris-sync
 
 | Recurso | URL |
 |---------|-----|
-| Site do portfólio (vitrine Astro) | https://mariahilmar-portfolio.vercel.app |
+| Site do portfólio (vitrine Astro) | https://mariahilmar.vercel.app |
 | Hub `maria-portfolio` | https://github.com/MariaHilmar/maria-portfolio |
 | API `juris-sync` | https://github.com/MariaHilmar/juris-sync |
 | Dashboard `juris-sync-web` | https://github.com/MariaHilmar/juris-sync-web |
