@@ -5,11 +5,12 @@ Este documento reúne **evidências verificáveis** dos projetos de portfólio p
 | Ecossistema | Repositórios | Papel no portfólio |
 |-------------|--------------|-------------------|
 | **JurisSync** | [juris-sync](https://github.com/MariaHilmar/juris-sync), [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) | API + dashboard de estudo (Python/FastAPI, jurimetria, testes em camadas) |
+| **PayCore** | [paycore](https://github.com/MariaHilmar/paycore) | Fintech de estudo (ledger double-entry, PIX mock, idempotência, conciliação) |
 | **MGI KPI** | [mgi-kpi-dashboard](https://github.com/MariaHilmar/mgi-kpi-dashboard), [mgi-kpi-pipeline](https://github.com/MariaHilmar/mgi-kpi-pipeline) | BI de engenharia (ETL Python + dashboard Next.js/Supabase) |
 
 Os projetos são **artefatos de portfólio** (demo local ou deploy com auth), não serviços oficiais de órgãos públicos nem produtos em produção com dados sensíveis versionados.
 
-**Case study JurisSync:** [`case-study-juris-sync.md`](case-study-juris-sync.md) · **Site:** [mariahilmar-portfolio.vercel.app](https://mariahilmar-portfolio.vercel.app) · **Guia do testador JurisSync:** [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md) · **Demo MGI KPI:** [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app)
+**Case study JurisSync:** [`case-study-juris-sync.md`](case-study-juris-sync.md) · **Case study PayCore:** [`case-study-paycore.md`](case-study-paycore.md) · **Site:** [mariahilmar.vercel.app](https://mariahilmar.vercel.app) · **Guia do testador JurisSync:** [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web/blob/main/docs/guia-do-testador.md) · **Demo MGI KPI:** [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app)
 
 ---
 
@@ -25,6 +26,8 @@ Os projetos são **artefatos de portfólio** (demo local ou deploy com auth), n�
 | Análise de dados | Intermediário | JurisSync API + Web | Stats SQL + dashboard Recharts |
 | BI / KPIs de engenharia | Avançado | MGI KPI Dashboard + Pipeline | ETL GitLab → Supabase, RPCs PostgreSQL, 358 testes Vitest |
 | Full-stack (dados + UX) | Avançado | MGI KPI Dashboard | Next.js 16 Server Components, cache, GovBR DS, SonarCloud |
+| Sistemas financeiros / ledger | Intermediário-avançado | PayCore | Double-entry, idempotência, `SELECT FOR UPDATE`, conciliação |
+| Segurança (threat model documentado) | Intermediário | PayCore | [`paycore/docs/SEGURANCA.md`](https://github.com/MariaHilmar/paycore/blob/main/docs/SEGURANCA.md) |
 
 *Níveis são autoavaliação com base no escopo dos projetos de portfólio, não em anos de experiência formal.*
 
@@ -194,6 +197,32 @@ GitLab / git log → mgi-kpi-pipeline (ETL Python) → Supabase (RPCs + views) �
 
 ---
 
+# Parte C - PayCore (fintech / ledger)
+
+> **Aviso:** projeto educacional de portfólio. Não é PSP homologado. Limitações de segurança documentadas em [`paycore/docs/SEGURANCA.md`](https://github.com/MariaHilmar/paycore/blob/main/docs/SEGURANCA.md).
+
+## 8. PayCore (carteira digital + ledger)
+
+**O que demonstro:** correção financeira em backend - partidas dobradas, idempotência, concorrência sem overdraft, conciliação contábil e documentação SDD completa.
+
+| Evidência | O que prova | Onde ver |
+|-----------|-------------|----------|
+| Ledger double-entry | Saldo derivado, nunca armazenado | [`paycore/app/services/ledger.py`](https://github.com/MariaHilmar/paycore/blob/main/app/services/ledger.py) |
+| Conta de settlement | Soma-zero global (PIX in/out) | [`PaymentService.confirm_deposit`](https://github.com/MariaHilmar/paycore/blob/main/app/services/payment.py) |
+| Idempotência | `Idempotency-Key` + constraint `UNIQUE` | [`app/api/deps.py`](https://github.com/MariaHilmar/paycore/blob/main/app/api/deps.py) |
+| Concorrência | `SELECT FOR UPDATE` na conta debitada | [`test_transfers.py`](https://github.com/MariaHilmar/paycore/blob/main/tests/test_transfers.py) |
+| Conciliação admin | Prova integridade do ledger | [`ReconciliationService`](https://github.com/MariaHilmar/paycore/blob/main/app/services/reconciliation.py) |
+| Requisitos RN01-RN17 | BDD + rastreabilidade | [`paycore/docs/requisitos.md`](https://github.com/MariaHilmar/paycore/blob/main/docs/requisitos.md) |
+| Segurança e limitações | Threat model explícito | [`paycore/docs/SEGURANCA.md`](https://github.com/MariaHilmar/paycore/blob/main/docs/SEGURANCA.md) |
+| Case study | Narrativa de produto | [`case-study-paycore.md`](case-study-paycore.md) |
+| CI | Ruff + Black + pytest (Postgres) | [`.github/workflows/ci.yml`](https://github.com/MariaHilmar/paycore/actions/workflows/ci.yml) |
+
+**Stack:** Python 3.11+, FastAPI, SQLAlchemy 2.0 async, PostgreSQL 16, Alembic, JWT, bcrypt, Docker Compose.
+
+**Exemplo citável:** *"Ledger de partidas dobradas com 33 testes incluindo corrida de transferências e dupla confirmação de depósito - documentação SDD com requisitos, C4 e matriz de segurança."*
+
+---
+
 ## Mapa rápido: competência → artefato
 
 ### JurisSync
@@ -220,6 +249,22 @@ graph LR
     ANALISE --> RN15[RN15]
 ```
 
+### PayCore
+
+```mermaid
+graph LR
+    PM[Gestão SDD] --> REQ[paycore/requisitos.md]
+    PM --> SEC[paycore/SEGURANCA.md]
+    PM --> CS_PAY[case-study-paycore]
+
+    LEDGER[Ledger] --> LS[LedgerService]
+    PAY[Pagamentos] --> PS[PaymentService]
+    PS --> LS
+
+    QA[Testes] --> T33[33 testes]
+    QA --> CI_PAY[GitHub Actions]
+```
+
 ### MGI KPI
 
 ```mermaid
@@ -238,6 +283,7 @@ graph LR
 | Repositório | Visibilidade | Incluir em competencias.md? |
 |-------------|--------------|----------------------------|
 | [mgi-kpi-pipeline](https://github.com/MariaHilmar/mgi-kpi-pipeline) | Público | Sim - citado na Parte B (par do dashboard) |
+| [paycore](https://github.com/MariaHilmar/paycore) | Público | Sim - Parte C (fintech / ledger) |
 | Situação Jurídica (produto) | Privado | Narrativa pública em [`case-study-situacao-juridica.md`](case-study-situacao-juridica.md) - sem links de código |
 | `contratos-v2-analise` | Público | Opcional - incluir só se README e escopo estiverem prontos para avaliação |
 | Demais privados | Privado | Evitar links - recrutador não consegue verificar |
@@ -248,7 +294,7 @@ graph LR
 
 | Item | Status |
 |------|--------|
-| Site live | https://mariahilmar-portfolio.vercel.app |
+| Site live | https://mariahilmar.vercel.app |
 | Dashboard Next.js (JurisSync) | Repo [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) - demo local |
 | Demo MGI KPI | [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app) (auth Supabase) |
 | Screenshots locais (Swagger, CI) | Instruções em [`docs/assets/README.md`](assets/README.md) |
@@ -257,4 +303,4 @@ graph LR
 
 ---
 
-*Documento do hub de portfólio. Última atualização: 2026-07-20 (inclui MGI KPI Dashboard como projeto separado).*
+*Documento do hub de portfólio. Última atualização: 2026-07-21 (inclui PayCore como eixo fintech).*

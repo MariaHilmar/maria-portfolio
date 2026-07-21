@@ -1,6 +1,6 @@
 # Case study: Situação Jurídica (produto próprio)
 
-> **Produto privado** | Código e operação não são públicos | Evidências técnicas públicas: [JurisSync](https://github.com/MariaHilmar/juris-sync) e [MGI KPI](https://github.com/MariaHilmar/mgi-kpi-dashboard) (recorte independente, não o produto)
+> **Produto privado** | Código e operação não são públicos | Evidências técnicas públicas: [JurisSync](https://github.com/MariaHilmar/juris-sync), [PayCore](https://github.com/MariaHilmar/paycore) e [MGI KPI](https://github.com/MariaHilmar/mgi-kpi-dashboard) (recortes independentes, não o produto)
 
 **Escopo deste documento:** narrativa de produto e mapa de capacidades, sem exposição de repositórios privados, credenciais, dados de clientes ou detalhes internos de implementação.
 
@@ -51,13 +51,14 @@ O que o trabalho no Situação Jurídica demonstra - e onde o portfólio públic
 |------------|----------------------|-----------------------------|
 | Gestão de produto e requisitos | Roadmap, BDD, priorização | Case e requisitos do JurisSync |
 | API backend | FastAPI, contratos, auth | [juris-sync](https://github.com/MariaHilmar/juris-sync) |
+| Ledger / transações financeiras | Double-entry, idempotência, ACID | [paycore](https://github.com/MariaHilmar/paycore) |
 | Frontend de dados | Apps web Next.js | [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) |
 | Engenharia de dados / BI | Pipelines, staging vs serving | [mgi-kpi-pipeline](https://github.com/MariaHilmar/mgi-kpi-pipeline) + dashboard |
 | Multi-tenant, RLS, LGPD | Privacy by Design no produto | Narrativa neste case (código privado) |
 | ML / RAG / jurimetria preditiva | Modelos e busca no produto | Narrativa + estudos em APIs públicas do portfólio |
 | Qualidade e testes | Governança no ciclo do produto | Suítes e CI nos repos públicos |
 
-**Importante:** JurisSync e MGI KPI **não** são o Situação Jurídica. São projetos públicos no mesmo domínio ou em BI de engenharia, usados para mostrar profundidade técnica sem abrir o código do produto.
+**Importante:** JurisSync, PayCore e MGI KPI **não** são o Situação Jurídica. São projetos públicos no mesmo domínio, em fintech de estudo ou em BI de engenharia, usados para mostrar profundidade técnica sem abrir o código do produto.
 
 ## 5. Resultados (ambiente do produto)
 
@@ -78,8 +79,9 @@ Resultados observados no ciclo do projeto próprio (não são métricas de clien
 
 1. Ler este case (amplitude e decisões de produto)
 2. Clonar e rodar [JurisSync](https://github.com/MariaHilmar/juris-sync) + [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) (API, testes, docs)
-3. Explorar [MGI KPI](https://web-mgi-delog.vercel.app) (ETL + dashboard)
-4. Ver o hub: [mariahilmar-portfolio.vercel.app](https://mariahilmar-portfolio.vercel.app)
+3. Explorar [PayCore](https://github.com/MariaHilmar/paycore) (ledger fintech, `docker compose up`)
+4. Explorar [MGI KPI](https://web-mgi-delog.vercel.app) (ETL + dashboard)
+5. Ver o hub: [mariahilmar.vercel.app](https://mariahilmar.vercel.app)
 
 ---
 

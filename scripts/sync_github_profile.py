@@ -30,7 +30,7 @@ def gh_api(args: list[str], input_data: str | None = None) -> dict | list | str:
 def main() -> None:
     bio = (
         "Product Manager / Product Owner | Dados e IA | Base técnica em Python "
-        "| Portfolio: mariahilmar-portfolio.vercel.app"
+        "| Portfolio: mariahilmar.vercel.app"
     )
 
     print("1) Bio do perfil...")
@@ -42,7 +42,7 @@ def main() -> None:
             "-f",
             f"bio={bio}",
             "-f",
-            "blog=https://mariahilmar-portfolio.vercel.app",
+            "blog=https://mariahilmar.vercel.app",
             "-f",
             "location=João Pessoa, PB",
         ]
@@ -58,22 +58,24 @@ Liderança de produto em squads ágeis (SaaS B2B e sistemas governamentais), com
 
 ## Links
 
-- Portfolio: https://mariahilmar-portfolio.vercel.app
-- LinkedIn: https://www.linkedin.com/in/mariahilmar/
-- Hub: https://github.com/MariaHilmar/maria-portfolio
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mariahilmar/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://mariahilmar.vercel.app)
+[![E-mail](https://img.shields.io/badge/E--mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mariahilmar@gmail.com)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5561982062117)
 
 ## Em destaque
 
 | Projeto | O que é |
 |---------|---------|
-| **Situação Jurídica** | Produto próprio de estudo (jurimetria/dados) - não é vínculo empregatício |
+| **Situação Jurídica** | jurimetria e benchmarking (FastAPI, Next.js, XGBoost, ML) |
 | [juris-sync](https://github.com/MariaHilmar/juris-sync) | API FastAPI + ETL + testes em camadas |
 | [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) | Dashboard Next.js de jurimetria |
+| [paycore](https://github.com/MariaHilmar/paycore) | Ledger fintech: double-entry, PIX mock, 33 testes |
 | [mgi-kpi-dashboard](https://github.com/MariaHilmar/mgi-kpi-dashboard) | BI de engenharia (demo live) |
 
 ## Stack em prática
 
-Python · FastAPI · PostgreSQL · Supabase · Redis · Docker · Next.js · TypeScript
+Python, FastAPI, TypeScript, Next.js, Redis, Docker, XGBoost, React, Tailwind CSS, pytest, Vitest, Sentry
 """
     current = gh_api(["repos/MariaHilmar/MariaHilmar/contents/README.md"])
     sha = current["sha"]
@@ -104,6 +106,7 @@ Python · FastAPI · PostgreSQL · Supabase · Redis · Docker · Next.js · Typ
         maria: repository(name: "maria-portfolio") { id name }
         juris: repository(name: "juris-sync") { id name }
         jurisWeb: repository(name: "juris-sync-web") { id name }
+        paycore: repository(name: "paycore") { id name }
         mgiDash: repository(name: "mgi-kpi-dashboard") { id name }
         mgiPipe: repository(name: "mgi-kpi-pipeline") { id name }
       }
@@ -115,6 +118,7 @@ Python · FastAPI · PostgreSQL · Supabase · Redis · Docker · Next.js · Typ
         viewer["maria"]["id"],
         viewer["juris"]["id"],
         viewer["jurisWeb"]["id"],
+        viewer["paycore"]["id"],
         viewer["mgiDash"]["id"],
         viewer["mgiPipe"]["id"],
     ]
@@ -122,6 +126,7 @@ Python · FastAPI · PostgreSQL · Supabase · Redis · Docker · Next.js · Typ
         viewer["maria"]["name"],
         viewer["juris"]["name"],
         viewer["jurisWeb"]["name"],
+        viewer["paycore"]["name"],
         viewer["mgiDash"]["name"],
         viewer["mgiPipe"]["name"],
     ]

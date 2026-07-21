@@ -172,6 +172,26 @@ const capabilities = [
         </article>
 
         <article class="project-card">
+          <p class="evidence-kicker">Portfólio público · fintech</p>
+          <h3>PayCore</h3>
+          <p>
+            Carteira digital com ledger de partidas dobradas, PIX simulado e transferências
+            P2P idempotentes. Foco em correção financeira, concorrência e documentação SDD.
+          </p>
+          <ul>
+            <li>Double-entry + conta de settlement (soma-zero)</li>
+            <li>33 testes · ~88% cobertura · SELECT FOR UPDATE</li>
+            <li>Docs: requisitos, C4, modelo de dados, segurança</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn btn-primary" href="https://github.com/MariaHilmar/paycore" target="_blank" rel="noreferrer"
+              >Repositório</a
+            >
+            <a class="btn btn-ghost" href="/docs/case-study-paycore">Case study</a>
+          </div>
+        </article>
+
+        <article class="project-card">
           <p class="evidence-kicker">Portfólio público · BI de engenharia</p>
           <h3>MGI KPI</h3>
           <p>
@@ -219,7 +239,7 @@ const capabilities = [
   <footer class="footer wrap">
     <p>
       Maria Hilmar ·
-      <a href="https://mariahilmar-portfolio.vercel.app">Live</a>
+      <a href="https://mariahilmar.vercel.app">Live</a>
       · Product Manager / PO · Dados &amp; IA
     </p>
   </footer>
@@ -480,7 +500,7 @@ const capabilities = [
 
   .projects-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
@@ -545,6 +565,12 @@ const capabilities = [
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @media (min-width: 601px) and (max-width: 1100px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
