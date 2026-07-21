@@ -30,7 +30,7 @@ def gh_api(args: list[str], input_data: str | None = None) -> dict | list | str:
 def main() -> None:
     bio = (
         "Product Manager / Product Owner | Dados e IA | Base técnica em Python "
-        "| Portfolio: mariahilmar-portfolio.vercel.app"
+        "| Portfolio: mariahilmar.vercel.app"
     )
 
     print("1) Bio do perfil...")
@@ -42,7 +42,7 @@ def main() -> None:
             "-f",
             f"bio={bio}",
             "-f",
-            "blog=https://mariahilmar-portfolio.vercel.app",
+            "blog=https://mariahilmar.vercel.app",
             "-f",
             "location=João Pessoa, PB",
         ]
@@ -58,7 +58,7 @@ Liderança de produto em squads ágeis (SaaS B2B e sistemas governamentais), com
 
 ## Links
 
-- Portfolio: https://mariahilmar-portfolio.vercel.app
+- Portfolio: https://mariahilmar.vercel.app
 - LinkedIn: https://www.linkedin.com/in/mariahilmar/
 - Hub: https://github.com/MariaHilmar/maria-portfolio
 

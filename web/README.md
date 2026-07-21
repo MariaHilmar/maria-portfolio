@@ -34,7 +34,7 @@ Saída estática em `dist/`.
 
 ## Deploy
 
-**Produção:** https://mariahilmar-portfolio.vercel.app
+**Produção:** https://mariahilmar.vercel.app
 
 ```powershell
 vercel deploy --prod --yes

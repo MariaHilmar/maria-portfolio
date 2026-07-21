@@ -79,7 +79,7 @@ Resultados observados no ciclo do projeto próprio (não são métricas de clien
 1. Ler este case (amplitude e decisões de produto)
 2. Clonar e rodar [JurisSync](https://github.com/MariaHilmar/juris-sync) + [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) (API, testes, docs)
 3. Explorar [MGI KPI](https://web-mgi-delog.vercel.app) (ETL + dashboard)
-4. Ver o hub: [mariahilmar-portfolio.vercel.app](https://mariahilmar-portfolio.vercel.app)
+4. Ver o hub: [mariahilmar.vercel.app](https://mariahilmar.vercel.app)
 
 ---
 
