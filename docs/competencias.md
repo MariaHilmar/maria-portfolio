@@ -294,7 +294,7 @@ graph LR
 
 | Item | Status |
 |------|--------|
-| Site live | https://mariahilmar-portfolio.vercel.app |
+| Site live | https://mariahilmar.vercel.app |
 | Dashboard Next.js (JurisSync) | Repo [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) - demo local |
 | Demo MGI KPI | [web-mgi-delog.vercel.app](https://web-mgi-delog.vercel.app) (auth Supabase) |
 | Screenshots locais (Swagger, CI) | Instruções em [`docs/assets/README.md`](assets/README.md) |

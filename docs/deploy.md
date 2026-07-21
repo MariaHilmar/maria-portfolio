@@ -4,9 +4,9 @@
 
 | Item | Valor |
 |------|-------|
-| **URL live** | https://mariahilmar-portfolio.vercel.app |
+| **URL live** | https://mariahilmar.vercel.app |
 | **Plataforma** | Vercel |
-| **Projeto** | `mariahilmar-portfolio` |
+| **Projeto** | `mariahilmar` |
 | **Escopo atual** | time `situacao-juridica-projects` (conta autenticada no CLI) |
 | **Origem** | pasta `web/` (Astro estático) |
 

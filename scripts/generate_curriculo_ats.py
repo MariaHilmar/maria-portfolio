@@ -134,7 +134,7 @@ add_paragraph(
 )
 add_paragraph(
     "LinkedIn: linkedin.com/in/mariahilmar | GitHub: github.com/MariaHilmar | "
-    "Portfolio: mariahilmar-portfolio.vercel.app",
+    "Portfolio: mariahilmar.vercel.app",
     size=9.5,
     space_after=2,
     align=WD_ALIGN_PARAGRAPH.CENTER,
@@ -295,7 +295,7 @@ add_bullet(
 )
 add_bullet(
     "Artefatos públicos relacionados: JurisSync (API + dashboard) e MGI KPI "
-    "(pipeline + BI) no GitHub e em mariahilmar-portfolio.vercel.app."
+    "(pipeline + BI) no GitHub e em mariahilmar.vercel.app."
 )
 
 # FORMACAO
