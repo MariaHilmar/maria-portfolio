@@ -1,164 +1,164 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const skills = [
-  {
-    title: "Gestão de produto",
-    text: "Roadmap em sprints, requisitos rastreáveis, BDD e entrega incremental.",
-    evidence: "16 regras de negócio com rastreabilidade requisito → código → teste",
-  },
-  {
-    title: "Desenvolvimento",
-    text: "APIs REST async, arquitetura em camadas, Docker e CI/CD.",
-    evidence: "FastAPI + SQLAlchemy 2.0 + OpenAPI",
-  },
-  {
-    title: "Automação de testes",
-    text: "Pirâmide em 5 camadas, Testcontainers e contract testing.",
-    evidence: "43 testes, cobertura ~89,9%",
-  },
-  {
-    title: "Engenharia de dados",
-    text: "Pipeline ETL idempotente, migrações versionadas e integração externa.",
-    evidence: "DataJud → RAG → validação → upsert",
-  },
-  {
-    title: "Análise",
-    text: "Jurimetria via agregações SQL sobre a base local.",
-    evidence: "Endpoints stats por tribunal e assunto",
-  },
+const capabilities = [
+  "Produto e requisitos",
+  "APIs e dados",
+  "Apps e BI",
+  "Segurança e LGPD",
+  "IA aplicada",
+  "Qualidade",
 ];
-
-const sprints = [
-  { n: "01", title: "Setup", detail: "Boilerplate FastAPI, config e health check" },
-  { n: "02", title: "Banco", detail: "Modelo relacional e migrations Alembic" },
-  { n: "03", title: "DataJud", detail: "Cliente real, mock e pipeline de sync" },
-  { n: "04", title: "Testes", detail: "Suíte em camadas e cobertura ≥ 85%" },
-  { n: "05", title: "CI/CD", detail: "Lint, testes e documentação" },
-];
-
-const tribunalStats = [
-  { label: "TJSP", value: 42 },
-  { label: "TJRJ", value: 28 },
-  { label: "TJMG", value: 18 },
-  { label: "TRF3", value: 12 },
-];
-
-const assuntoStats = [
-  { label: "Direito civil", value: 36 },
-  { label: "Direito do consumidor", value: 24 },
-  { label: "Direito trabalhista", value: 22 },
-  { label: "Outros", value: 18 },
-];
-
-const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
 ---
 
 <BaseLayout>
-  <header class="nav wrap">
-    <a class="brand" href="#topo">Maria Hilmar</a>
-    <nav aria-label="Principal">
-      <a href="#sobre">Sobre</a>
-      <a href="#competencias">Competências</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </nav>
+  <header class="site-header">
+    <div class="nav wrap">
+      <a class="brand" href="#topo">Maria Hilmar</a>
+      <nav aria-label="Principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#produto">Produto</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="topo">
-    <section class="hero wrap">
-      <p class="hero-kicker">Portfólio · Product Manager / Product Owner · Dados & IA</p>
-      <h1 class="hero-name">Maria Hilmar</h1>
-      <p class="hero-tagline">
-        Product Manager / Product Owner com foco em Dados e Inteligência Artificial.
-        Liderança madura em squads ágeis, com projetos hands-on em Python e FastAPI na
-        intersecção entre negócios e engenharia.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="/docs/case-study-juris-sync">Case study</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/mariahilmar/" target="_blank" rel="noreferrer"
-          >LinkedIn</a
-        >
-        <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
-      </div>
-      <div class="hero-plane" aria-hidden="true">
-        <div class="hero-orbit"></div>
-        <div class="hero-block">
-          <span>JurisSync</span>
-          <strong>API · ETL · Jurimetria</strong>
+  <div class="hero-band">
+    <main id="topo">
+      <section class="hero wrap">
+        <div class="hero-content">
+          <p class="hero-kicker">Portfólio · Product Manager / Product Owner · Dados &amp; IA</p>
+          <h1 class="hero-name">Maria Hilmar</h1>
+          <p class="hero-tagline">
+            Product Manager / Product Owner com foco em Dados e Inteligência Artificial.
+            Liderança madura em squads ágeis, com projetos hands-on em Python e FastAPI na
+            intersecção entre negócios e engenharia.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-hero" href="#produto">Produto próprio</a>
+            <a class="btn btn-ghost hero-ghost" href="#projetos">Evidências públicas</a>
+          </div>
         </div>
-      </div>
-    </section>
+        <figure class="hero-figure">
+          <img
+            src="/visuals/hero-arch.svg"
+            alt="Diagrama ilustrativo do fluxo Fontes, Staging, Serving, Analytics, Apps e IA"
+            width="1400"
+            height="800"
+            decoding="async"
+          />
+        </figure>
+      </section>
+    </main>
+  </div>
+
+  <main>
 
     <section id="sobre" class="section wrap reveal">
       <span class="section-label">Sobre</span>
       <h2>Liderança de produto na intersecção com dados e IA</h2>
       <p class="section-lead">
         Histórico consolidado em gestão de squads ágeis e governança de software, com
-        forte viés técnico. MBA em Ciência de Dados (BI & Analytics) e projeto próprio
-        de estudo (Situação Jurídica) para consolidar autonomia em Python, APIs e
-        engenharia de dados - evidências públicas no GitHub.
+        forte viés técnico. MBA em Ciência de Dados (BI &amp; Analytics). Amplitude em produto
+        próprio de estudo; profundidade técnica em projetos públicos no GitHub.
       </p>
       <div class="about-grid">
-        <div>
-          <h3>Bagagem consolidada</h3>
-          <p>Backlog orientado ao ROI, OKRs, engenharia de requisitos (BDD, UML, BPMN) e governança de QA (CTAL-TM).</p>
+        <div class="about-card">
+          <h3>Bagagem de liderança</h3>
+          <p>
+            Gestão de squads ágeis multidisciplinares (Scrum, Kanban, Management 3.0),
+            backlog orientado ao ROI, OKRs/KPIs, desenvolvimento de pessoas com 1:1s e
+            feedbacks, e articulação entre C-Level, engenharia e clientes B2B.
+          </p>
         </div>
-        <div>
-          <h3>Projeto próprio de estudo</h3>
-          <p>Situação Jurídica (jurimetria/dados) → artefatos públicos JurisSync e MGI KPI. Não é vínculo empregatício.</p>
+        <div class="about-card">
+          <h3>Bagagem técnica</h3>
+          <p>
+            Engenharia de requisitos (BDD/Gherkin, BPMN, UML, C4, APF), arquitetura SaaS,
+            proximidade com engenharia de dados (bancos relacionais e vetoriais, pipelines
+            ETL) e governança de QA (CTAL-TM). Python, FastAPI e PostgreSQL em estudo contínuo.
+          </p>
         </div>
-        <div>
-          <h3>Como trabalho</h3>
-          <p>Documentação viva, critérios de aceite e evidências verificáveis em cada entrega.</p>
+        <div class="about-card">
+          <h3>Entregáveis técnicos</h3>
+          <p>
+            Código limpo orientado a padrões (SOLID, Design Patterns). Documentação viva no
+            repositório (ADR, BDD/Gherkin, OpenAPI/Swagger). Escopo validado por critérios
+            de aceite e garantido por evidências em pipelines de CI/CD (SonarQube).
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="competencias" class="section wrap reveal">
-      <span class="section-label">Competências</span>
-      <h2>Evidências, não buzzwords</h2>
-      <p class="section-lead">
-        Cada competência aponta para artefatos reais nos projetos JurisSync e MGI KPI.
-        Detalhamento completo em
-        <a href="/docs/competencias">competências com evidências</a>.
-      </p>
-      <ul class="skills-list">
-        {
-          skills.map((skill) => (
-            <li>
-              <h3>{skill.title}</h3>
-              <p>{skill.text}</p>
-              <p class="skill-evidence">{skill.evidence}</p>
-            </li>
-          ))
-        }
-      </ul>
+    <section id="produto" class="band-dark section reveal">
+      <div class="wrap">
+        <span class="section-label on-dark">Produto próprio · código privado</span>
+        <h2>Situação Jurídica</h2>
+        <p class="section-lead on-dark">
+          Ecossistema de jurimetria e dados jurídicos - estudo aplicado de Product Ownership
+          com base técnica. <strong>Não é vínculo empregatício.</strong> Código e operação
+          permanecem privados; abaixo, a visão do que o trabalho demonstra.
+        </p>
+
+        <div class="sj-layout">
+          <div class="sj-copy">
+            <div class="sj-block">
+              <h3>Problema</h3>
+              <p>
+                Dados processuais fragmentados. É preciso ingestão, normalização, APIs,
+                analytics e conformidade (LGPD) para apoiar decisões.
+              </p>
+            </div>
+            <div class="sj-block">
+              <h3>Papel</h3>
+              <p>
+                Product Owner / Product Lead: roadmap, requisitos, alinhamento com arquitetura,
+                qualidade e jornadas de dados.
+              </p>
+            </div>
+            <div class="sj-block">
+              <h3>Resultados no ambiente do projeto</h3>
+              <ul>
+                <li>~60% menos latência após segregação staging/ETL versus serving</li>
+                <li>~70% menos esforço de especificação com docs e BDD assistidos por IA</li>
+                <li>Isolamento multi-tenant (RLS) e Privacy by Design / LGPD</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a class="btn btn-primary" href="/docs/case-study-situacao-juridica">Case completo</a>
+              <a class="btn btn-ghost on-dark-btn" href="/docs/competencias">Competências</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="caps-label">Capacidades demonstradas no produto</p>
+        <ul class="caps-row">
+          {capabilities.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
     </section>
 
     <section id="projetos" class="section wrap reveal">
-      <span class="section-label">Projetos</span>
-      <h2>Projetos em destaque</h2>
+      <span class="section-label">Evidências públicas</span>
+      <h2>Projetos com código aberto</h2>
       <p class="section-lead">
-        Produto próprio de estudo <strong>Situação Jurídica</strong> (jurimetria/dados jurídicos)
-        e dois ecossistemas públicos de evidência: JurisSync e MGI KPI - código, testes e
-        documentação verificável.
+        Recortes técnicos para avaliação (clone + run). <strong>Não são o Situação Jurídica</strong>
+        - são demonstrações independentes de API, testes, dashboard e BI.
       </p>
 
-      <h3 class="project-family">Situação Jurídica → JurisSync</h3>
-      <p class="project-intro">
-        Projeto próprio de Product Ownership com base técnica. A API FastAPI + dashboard Next.js
-        (JurisSync) são as evidências públicas para jurimetria e sync de processos (DataJud CNJ).
-        Avaliação local - mock ou dados reais. Não é vínculo empregatício.
-      </p>
-      <article class="project">
-        <div class="project-main">
-          <h3>O que entrega</h3>
+      <div class="projects-grid">
+        <article class="project-card">
+          <p class="evidence-kicker">Portfólio público · domínio jurídico</p>
+          <h3>JurisSync</h3>
+          <p>
+            API FastAPI + dashboard Next.js (DataJud CNJ): sync idempotente, 43 testes em
+            5 camadas, documentação viva. Avaliação local - mock ou dados reais.
+          </p>
           <ul>
-            <li>Pipeline de sincronização idempotente (DataJud → validação → persistência)</li>
-            <li>43 testes em 5 camadas, incluindo Testcontainers e Schemathesis</li>
-            <li>Dashboard Next.js (React + TypeScript) consumindo a API</li>
-            <li>Documentação viva com rastreabilidade requisito → código → teste</li>
+            <li>Pipeline DataJud → validação → persistência</li>
+            <li>~90% cobertura · Testcontainers · Schemathesis</li>
+            <li>Case study e CI públicos</li>
           </ul>
           <div class="project-links">
             <a class="btn btn-primary" href="https://github.com/MariaHilmar/juris-sync" target="_blank" rel="noreferrer"
@@ -168,153 +168,34 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
               >Dashboard</a
             >
             <a class="btn btn-ghost" href="/docs/case-study-juris-sync">Case study</a>
-            <a class="btn btn-ghost" href="https://github.com/MariaHilmar/juris-sync/actions/workflows/ci.yml" target="_blank" rel="noreferrer"
-              >CI</a
-            >
           </div>
-        </div>
-        <aside class="project-meta" aria-label="Métricas JurisSync">
-          <div>
-            <strong>43</strong>
-            <span>testes</span>
-          </div>
-          <div>
-            <strong>~90%</strong>
-            <span>cobertura</span>
-          </div>
-          <div>
-            <strong>5</strong>
-            <span>camadas de teste</span>
-          </div>
-          <div>
-            <strong>5</strong>
-            <span>sprints entregues</span>
-          </div>
-        </aside>
-      </article>
+        </article>
 
-      <h3 class="project-family">MGI KPI</h3>
-      <p class="project-intro">
-        BI de engenharia: pipeline ETL Python (GitLab → Supabase) + dashboard Next.js somente leitura
-        com KPIs, fluxo, sprint e alertas. Projeto de portfólio - não é sistema oficial do MGI.
-      </p>
-      <article class="project">
-        <div class="project-main">
-          <h3>O que entrega</h3>
+        <article class="project-card">
+          <p class="evidence-kicker">Portfólio público · BI de engenharia</p>
+          <h3>MGI KPI</h3>
+          <p>
+            ETL Python (GitLab → Supabase) + dashboard Next.js somente leitura. Projeto de
+            portfólio - não é sistema oficial do MGI.
+          </p>
           <ul>
-            <li>ETL Python com regras de negócio em memória e upsert idempotente no Supabase</li>
-            <li>Dashboard Next.js 16 com Server Components, cache e agregações via RPC PostgreSQL</li>
-            <li>358 testes Vitest + CI com SonarCloud no dashboard</li>
-            <li>Demo em produção com autenticação Supabase</li>
+            <li>Upsert idempotente e RPCs PostgreSQL</li>
+            <li>358 testes Vitest · SonarCloud</li>
+            <li>Demo live com autenticação</li>
           </ul>
           <div class="project-links">
-            <a class="btn btn-primary" href="https://github.com/MariaHilmar/mgi-kpi-dashboard" target="_blank" rel="noreferrer"
+            <a class="btn btn-primary" href="https://web-mgi-delog.vercel.app" target="_blank" rel="noreferrer"
+              >Demo live</a
+            >
+            <a class="btn btn-ghost" href="https://github.com/MariaHilmar/mgi-kpi-dashboard" target="_blank" rel="noreferrer"
               >Dashboard</a
             >
             <a class="btn btn-ghost" href="https://github.com/MariaHilmar/mgi-kpi-pipeline" target="_blank" rel="noreferrer"
               >Pipeline</a
             >
-            <a class="btn btn-ghost" href="https://web-mgi-delog.vercel.app" target="_blank" rel="noreferrer"
-              >Demo live</a
-            >
-            <a class="btn btn-ghost" href="/docs/competencias">Evidências</a>
           </div>
-        </div>
-        <aside class="project-meta" aria-label="Métricas MGI KPI">
-          <div>
-            <strong>358</strong>
-            <span>testes Vitest</span>
-          </div>
-          <div>
-            <strong>2</strong>
-            <span>repos (ETL + web)</span>
-          </div>
-          <div>
-            <strong>RPC</strong>
-            <span>agregações no Postgres</span>
-          </div>
-          <div>
-            <strong>Live</strong>
-            <span>Vercel + Supabase</span>
-          </div>
-        </aside>
-      </article>
-    </section>
-
-    <section id="jurimetria" class="section wrap reveal">
-      <span class="section-label">Análise</span>
-      <h2>Jurimetria sobre a base local</h2>
-      <p class="section-lead">
-        Visualização ilustrativa na vitrine dos endpoints
-        <code>/stats/por-tribunal</code> e <code>/stats/por-assunto</code>.
-        Para o dashboard ao vivo (Next.js), clone
-        <a href="https://github.com/MariaHilmar/juris-sync" target="_blank" rel="noreferrer">juris-sync</a>
-        e
-        <a href="https://github.com/MariaHilmar/juris-sync-web" target="_blank" rel="noreferrer">juris-sync-web</a>
-        e rode local - modo mock ou DataJud real.
-      </p>
-      <div class="charts">
-        <div class="chart-block">
-          <h3>Processos por tribunal</h3>
-          <ul class="bars" aria-label="Distribuição por tribunal">
-            {
-              tribunalStats.map((item) => (
-                <li>
-                  <div class="bar-label">
-                    <span>{item.label}</span>
-                    <span>{item.value}</span>
-                  </div>
-                  <div class="bar-track">
-                    <div
-                      class="bar-fill"
-                      style={`width: ${(item.value / maxTribunal) * 100}%`}
-                    />
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-        <div class="chart-block">
-          <h3>Processos por assunto</h3>
-          <ul class="stack" aria-label="Distribuição por assunto">
-            {
-              assuntoStats.map((item) => (
-                <li>
-                  <span class="stack-swatch" style={`flex: ${item.value}`} />
-                  <span class="stack-caption">{item.label} · {item.value}%</span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
+        </article>
       </div>
-    </section>
-
-    <section id="processo" class="section wrap reveal">
-      <span class="section-label">Processo</span>
-      <h2>Como a entrega aconteceu</h2>
-      <p class="section-lead">
-        Cinco sprints com qualidade como requisito: lint, testes e integração no CI a
-        cada push.
-      </p>
-      <ol class="timeline">
-        {
-          sprints.map((sprint) => (
-            <li>
-              <span class="timeline-n">{sprint.n}</span>
-              <div>
-                <h3>{sprint.title}</h3>
-                <p>{sprint.detail}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
-      <p class="process-note">
-        CI em 3 jobs: Lint (Ruff, Black, Mypy), Test (pytest + cobertura) e Integration
-        (Testcontainers + Schemathesis).
-      </p>
     </section>
 
     <section id="contato" class="section wrap reveal">
@@ -325,25 +206,13 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
         profundidade técnica.
       </p>
       <div class="contact-row">
-        <a class="btn btn-primary" href="https://wa.me/5561982062117" target="_blank" rel="noreferrer"
-          >WhatsApp</a
-        >
         <a class="btn btn-primary" href="https://www.linkedin.com/in/mariahilmar/" target="_blank" rel="noreferrer"
           >LinkedIn</a
         >
-        <a class="btn btn-primary" href="https://github.com/MariaHilmar" target="_blank" rel="noreferrer"
-          >GitHub</a
-        >
+        <a class="btn btn-ghost" href="https://github.com/MariaHilmar" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn btn-ghost" href="mailto:mariahilmar@gmail.com">E-mail</a>
-        <a class="btn btn-ghost" href="/docs/case-study-juris-sync">Ler case study</a>
-        <a class="btn btn-ghost" href="/docs/competencias">Ver competências</a>
+        <a class="btn btn-ghost" href="https://wa.me/5561982062117" target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
-      <p class="contact-hint">
-        Site live:
-        <a href="https://mariahilmar-portfolio.vercel.app">mariahilmar-portfolio.vercel.app</a>
-        · Perfil GitHub:
-        <a href="https://github.com/MariaHilmar/MariaHilmar">MariaHilmar/MariaHilmar</a>
-      </p>
     </section>
   </main>
 
@@ -351,25 +220,41 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     <p>
       Maria Hilmar ·
       <a href="https://mariahilmar-portfolio.vercel.app">Live</a>
-      · Conteúdo alinhado a <code>maria-portfolio</code>
+      · Product Manager / PO · Dados &amp; IA
     </p>
   </footer>
 </BaseLayout>
 
 <style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(12, 28, 34, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(213, 232, 233, 0.12);
+  }
+
+  .hero-band {
+    background:
+      radial-gradient(700px 380px at 88% 20%, rgba(45, 154, 158, 0.28), transparent 60%),
+      linear-gradient(180deg, #0c1c22 0%, #123038 60%, #1a3a42 100%);
+  }
+
   .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 1.25rem 0 0.5rem;
+    padding: 0.9rem 0;
   }
 
   .brand {
     font-family: var(--font-display);
     font-weight: 800;
     font-size: 1.05rem;
-    color: var(--ink);
+    color: #f7fafb;
     text-decoration: none;
     letter-spacing: -0.02em;
   }
@@ -377,27 +262,40 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
   .nav nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.9rem 1.1rem;
+    gap: 1rem 1.25rem;
   }
 
-  .nav nav a {
-    font-family: var(--font-display);
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--ink-soft);
+  .nav a {
+    color: rgba(247, 250, 251, 0.82);
     text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
   }
 
-  .nav nav a:hover {
-    color: var(--teal-deep);
+  .nav a:hover {
+    color: #9ed0d2;
   }
 
   .hero {
-    min-height: calc(100vh - 4rem);
     display: grid;
-    align-content: center;
-    padding: 3rem 0 4rem;
-    position: relative;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 3rem 0 4.5rem;
+  }
+
+  .hero-content {
+    animation: rise 0.9s ease both;
+  }
+
+  .btn-hero {
+    background: #f7fafb;
+    color: var(--ink);
+  }
+
+  .btn-hero:hover {
+    background: #d5e8e9;
+    color: var(--ink);
   }
 
   .hero-kicker {
@@ -406,80 +304,53 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--teal);
+    color: #9ed0d2;
     margin: 0 0 1rem;
-    animation: rise 0.8s ease both;
   }
 
   .hero-name {
     font-family: var(--font-display);
-    font-size: clamp(3.2rem, 10vw, 6.4rem);
+    font-size: clamp(3rem, 7vw, 5.2rem);
     line-height: 0.95;
     letter-spacing: -0.04em;
     margin: 0 0 1.25rem;
-    max-width: 10ch;
-    animation: rise 0.9s ease 0.08s both;
+    color: #f7fafb;
   }
 
   .hero-tagline {
     max-width: 34rem;
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    color: var(--ink-soft);
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: rgba(247, 250, 251, 0.85);
     margin: 0 0 2rem;
-    animation: rise 1s ease 0.16s both;
   }
 
   .hero-cta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    animation: rise 1.05s ease 0.24s both;
   }
 
-  .hero-plane {
-    position: absolute;
-    right: 0;
-    bottom: 12%;
-    width: min(340px, 42vw);
-    aspect-ratio: 1;
-    pointer-events: none;
+  .hero-ghost {
+    border-color: rgba(247, 250, 251, 0.65);
+    color: #f7fafb;
   }
 
-  .hero-orbit {
-    position: absolute;
-    inset: 8%;
-    border: 1px solid rgba(26, 107, 110, 0.28);
-    border-radius: 40% 60% 55% 45%;
-    animation: drift 12s ease-in-out infinite;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(26, 107, 110, 0.18), transparent 55%),
-      radial-gradient(circle at 70% 70%, rgba(184, 149, 106, 0.16), transparent 50%);
+  .hero-ghost:hover {
+    background: rgba(247, 250, 251, 0.1);
+    color: #f7fafb;
   }
 
-  .hero-block {
-    position: absolute;
-    left: 18%;
-    top: 36%;
-    padding: 1rem 1.15rem;
-    background: rgba(247, 250, 251, 0.82);
-    border: 1px solid var(--line);
-    backdrop-filter: blur(6px);
-    animation: floaty 5.5s ease-in-out infinite;
+  .hero-figure {
+    margin: 0;
+    animation: rise 1s ease 0.1s both;
   }
 
-  .hero-block span {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal);
-  }
-
-  .hero-block strong {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
+  .hero-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(213, 232, 233, 0.22);
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
   }
 
   .about-grid {
@@ -488,93 +359,117 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     gap: 1.5rem;
   }
 
-  .about-grid h3,
-  .skills-list h3,
-  .project h3,
-  .chart-block h3,
-  .timeline h3 {
+  .about-card {
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    box-shadow: var(--shadow);
+  }
+
+  .about-card h3 {
     font-family: var(--font-display);
     font-size: 1.15rem;
     margin: 0 0 0.5rem;
   }
 
-  .about-grid p,
-  .skills-list p,
-  .timeline p {
+  .about-card p {
     margin: 0;
     color: var(--ink-soft);
   }
 
-  .skills-list {
+  .band-dark {
+    background:
+      radial-gradient(800px 400px at 90% 10%, rgba(26, 107, 110, 0.35), transparent 55%),
+      linear-gradient(180deg, #132028 0%, #1a2f36 100%);
+    color: #f7fafb;
+  }
+
+  .band-dark h2,
+  .band-dark h3 {
+    color: #f7fafb;
+  }
+
+  .section-label.on-dark,
+  .caps-label {
+    color: #9ed0d2;
+  }
+
+  .section-lead.on-dark {
+    color: rgba(247, 250, 251, 0.78);
+  }
+
+  .sj-layout {
+    margin-bottom: 2.5rem;
+  }
+
+  .sj-copy {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem 2rem;
+    align-items: start;
+  }
+
+  .sj-copy .project-links {
+    grid-column: 1 / -1;
+  }
+
+  .sj-block h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .sj-block p,
+  .sj-block li {
+    color: rgba(247, 250, 251, 0.78);
+    margin: 0;
+  }
+
+  .sj-block ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .sj-block li + li {
+    margin-top: 0.35rem;
+  }
+
+  .caps-label {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 0.85rem;
+  }
+
+  .caps-row {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
   }
 
-  .skills-list li {
-    display: grid;
-    grid-template-columns: 12rem 1fr 1.2fr;
-    gap: 1rem;
-    padding: 1.1rem 0;
-    border-top: 1px solid var(--line);
+  .caps-row li {
+    padding: 0.45rem 0.85rem;
+    border: 1px solid rgba(213, 232, 233, 0.35);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #d5e8e9;
+    background: rgba(247, 250, 251, 0.04);
   }
 
-  .skills-list li:last-child {
-    border-bottom: 1px solid var(--line);
+  .btn.on-dark-btn {
+    border-color: rgba(247, 250, 251, 0.55);
+    color: #f7fafb;
   }
 
-  .skill-evidence {
-    font-size: 0.95rem;
-    color: var(--teal-deep) !important;
-    font-weight: 600;
-  }
-
-  .project-family {
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    margin: 2.5rem 0 0.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .project-family:first-of-type {
-    margin-top: 0;
-  }
-
-  .project-intro {
-    max-width: 42rem;
-    color: var(--ink-soft);
-    margin: 0 0 1.25rem;
-  }
-
-  .project + .project-family {
-    margin-top: 3rem;
-  }
-
-  .project {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 1.5rem;
-    align-items: stretch;
-  }
-
-  .project-main {
-    padding: 1.5rem;
-    border: 1px solid var(--line);
-    background: rgba(247, 250, 251, 0.7);
-    box-shadow: var(--shadow);
-    border-radius: var(--radius);
-  }
-
-  .project-main ul {
-    margin: 0 0 1.5rem;
-    padding-left: 1.1rem;
-    color: var(--ink-soft);
-  }
-
-  .project-main li + li {
-    margin-top: 0.45rem;
+  .btn.on-dark-btn:hover {
+    background: rgba(247, 250, 251, 0.08);
+    color: #f7fafb;
   }
 
   .project-links {
@@ -583,135 +478,50 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     gap: 0.65rem;
   }
 
-  .project-meta {
+  .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-  }
-
-  .project-meta div {
-    padding: 1.1rem;
-    border: 1px solid var(--line);
-    background: rgba(213, 232, 233, 0.45);
-    border-radius: var(--radius);
-  }
-
-  .project-meta strong {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    line-height: 1;
-    margin-bottom: 0.35rem;
-  }
-
-  .project-meta span {
-    color: var(--ink-soft);
-    font-size: 0.92rem;
-  }
-
-  .charts {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
     gap: 1.5rem;
   }
 
-  .chart-block {
-    padding: 1.35rem;
+  .project-card {
+    background: var(--paper);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    background: rgba(247, 250, 251, 0.75);
+    box-shadow: var(--shadow);
+    padding: 1.75rem;
   }
 
-  .bars {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.85rem;
-  }
-
-  .bar-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.92rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .bar-track {
-    height: 10px;
-    background: var(--teal-soft);
-    border-radius: 999px;
-    overflow: hidden;
-  }
-
-  .bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--teal), var(--teal-deep));
-    border-radius: inherit;
-    transform-origin: left;
-    animation: grow 1.1s ease both;
-  }
-
-  .stack {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  .stack li {
-    display: grid;
-    gap: 0.35rem;
-  }
-
-  .stack-swatch {
-    display: block;
-    height: 14px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--teal-soft), var(--teal), var(--sand));
-  }
-
-  .stack-caption {
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-  }
-
-  code {
-    font-size: 0.9em;
-    background: rgba(26, 107, 110, 0.08);
-    padding: 0.1em 0.35em;
-    border-radius: 4px;
-  }
-
-  .timeline {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 1rem;
-  }
-
-  .timeline li {
-    display: grid;
-    grid-template-columns: 3.5rem 1fr;
-    gap: 1rem;
-    align-items: start;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .timeline-n {
+  .evidence-kicker {
     font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.3rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--teal);
+    margin: 0 0 0.5rem;
   }
 
-  .process-note,
-  .contact-hint {
-    margin-top: 1.5rem;
+  .project-card h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .project-card p {
     color: var(--ink-soft);
+    margin: 0 0 0.85rem;
+  }
+
+  .project-card ul {
+    margin: 0 0 1.35rem;
+    padding-left: 1.1rem;
+    color: var(--ink-soft);
+  }
+
+  .project-card li + li {
+    margin-top: 0.35rem;
   }
 
   .contact-row {
@@ -724,7 +534,7 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     padding: 2rem 0 3rem;
     border-top: 1px solid var(--line);
     color: var(--ink-soft);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 
   @keyframes rise {
@@ -738,72 +548,85 @@ const maxTribunal = Math.max(...tribunalStats.map((s) => s.value));
     }
   }
 
-  @keyframes drift {
-    0%,
-    100% {
-      transform: rotate(0deg) scale(1);
-    }
-    50% {
-      transform: rotate(8deg) scale(1.03);
-    }
-  }
-
-  @keyframes floaty {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-
-  @keyframes grow {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
-    }
-  }
-
   @media (max-width: 900px) {
-    .hero-plane {
-      display: none;
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      padding: 1.5rem 0 3rem;
     }
 
-    .about-grid,
-    .project,
-    .charts {
+    .projects-grid {
       grid-template-columns: 1fr;
+      gap: 1.25rem;
     }
 
-    .skills-list li {
+    .about-grid {
       grid-template-columns: 1fr;
-      gap: 0.35rem;
     }
   }
 
-  @media (max-width: 640px) {
+  @media (min-width: 601px) and (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 601px) and (max-width: 900px) {
+    .sj-copy {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
     .nav {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      padding: 1rem 0;
+    }
+
+    .nav nav {
+      gap: 0.75rem 1rem;
+      font-size: 0.9rem;
     }
 
     .hero {
-      min-height: auto;
-      padding-top: 2rem;
+      gap: 1.5rem;
+      padding: 1rem 0 2.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.6rem, 13vw, 3.4rem);
+    }
+
+    .hero-figure img {
+      border-radius: 12px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .sj-copy {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .caps-row li {
+      font-size: 0.82rem;
+      padding: 0.4rem 0.7rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-cta .btn,
+    .project-links .btn,
+    .contact-row .btn {
+      flex: 1 1 auto;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-kicker,
-    .hero-name,
-    .hero-tagline,
-    .hero-cta,
-    .hero-orbit,
-    .hero-block,
-    .bar-fill {
+    .hero-content {
       animation: none;
     }
   }

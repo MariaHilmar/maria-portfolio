@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prebuild": "node ./scripts/prepare-docs.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
