@@ -52,6 +52,11 @@ const canonical = Astro.url.pathname === "/" ? siteUrl : new URL(Astro.url.pathn
       <slot />
     </div>
     <script>
+      document.querySelectorAll('a[href]:not([download])').forEach((link) => {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      });
+
       const items = document.querySelectorAll(".reveal");
       if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(

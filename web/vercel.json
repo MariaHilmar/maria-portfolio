@@ -25,6 +25,11 @@
       "permanent": true
     },
     {
+      "source": "/docs/case-study-mgi-kpi.md",
+      "destination": "/docs/case-study-mgi-kpi",
+      "permanent": true
+    },
+    {
       "source": "/docs/case-study-situacao-juridica.md",
       "destination": "/docs/case-study-situacao-juridica",
       "permanent": true
