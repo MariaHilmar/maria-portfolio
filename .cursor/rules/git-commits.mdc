@@ -1,0 +1,27 @@
+---
+description: Commits e PRs sem atribuicao ao Cursor
+alwaysApply: true
+---
+
+# Commits e pull requests
+
+## Proibido
+
+- Nunca adicionar `Co-authored-by: Cursor`, `cursoragent@cursor.com`, `Made-with: Cursor` ou qualquer trailer/atribuicao ao Cursor.
+- Nunca usar `git commit --trailer` para atribuir o Cursor.
+
+## Autor
+
+- Commits como **MariaHilmar** (`mariahilmar@gmail.com`).
+- Usar `git commit --author="MariaHilmar <mariahilmar@gmail.com>"` quando necessario.
+
+## Fluxo obrigatorio ao commitar
+
+1. Instalar hooks se ainda nao estiverem ativos: `powershell -File scripts/install-git-hooks.ps1`
+2. Commitar normalmente.
+3. Validar com `git log -1 --format=full`.
+4. Se ainda aparecer trailer do Cursor, fazer `git commit --amend` com a mesma mensagem (o hook remove o trailer) e `git push --force-with-lease` na branch de feature.
+
+## Pull requests
+
+- Titulo e corpo sem mencao ao Cursor como autor ou co-autor.
