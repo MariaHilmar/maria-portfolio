@@ -9,6 +9,7 @@
 | **Projeto** | `mariahilmar` |
 | **Escopo atual** | time `situacao-juridica-projects` (conta autenticada no CLI) |
 | **Origem** | pasta `web/` (Astro estático) |
+| **Branch de producao** | `docs/portfolio-hub` (default no GitHub) |
 
 ### Redeploy (local)
 

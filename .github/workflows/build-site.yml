@@ -2,12 +2,12 @@ name: Build portfolio site
 
 on:
   push:
-    branches: [main]
+    branches: [docs/portfolio-hub]
     paths:
       - "web/**"
       - ".github/workflows/build-site.yml"
   pull_request:
-    branches: [main]
+    branches: [docs/portfolio-hub]
     paths:
       - "web/**"
       - ".github/workflows/build-site.yml"
