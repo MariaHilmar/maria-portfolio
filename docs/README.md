@@ -6,9 +6,6 @@ Copia `docs/` da raiz para `web/public/docs/` (case study, competências, deploy
 .\scripts\sync-docs.ps1
 ```
 
-Depois, se o site estiver em produção:
+Depois do merge em `docs/portfolio-hub`, a Vercel publica automaticamente (integração Git).
 
-```powershell
-cd web
-vercel deploy --prod --yes
-```
+Fallback manual: ver [`docs/deploy.md`](../docs/deploy.md).
