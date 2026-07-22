@@ -5,7 +5,7 @@
 | Camada | Ferramenta | O que faz |
 |--------|------------|-----------|
 | **CI** | GitHub Actions | Lint, testes e build em PR/push |
-| **Deploy web** | Integração Git da Vercel | Build e publicação automáticos após merge |
+| **Deploy web** | GitHub Actions + Vercel | Publica apos merge em `docs/portfolio-hub` |
 | **APIs / backends** | Sem deploy público | Avaliação local (`docker compose`, `uvicorn`, `npm run dev`) |
 
 Repos que seguem esse padrão hoje:
@@ -15,9 +15,9 @@ Repos que seguem esse padrão hoje:
 | [juris-sync](https://github.com/MariaHilmar/juris-sync) | lint + testes | local |
 | [juris-sync-web](https://github.com/MariaHilmar/juris-sync-web) | lint + test + build | local (ou Vercel se conectado) |
 | [paycore](https://github.com/MariaHilmar/paycore) | lint + testes | local |
-| **maria-portfolio** (este) | build do site Astro | Vercel (integração Git) |
+| **maria-portfolio** (este) | build do site Astro | GitHub Actions → Vercel |
 
-**Regra:** CI valida no GitHub; a Vercel publica. Não usar workflow de deploy com `VERCEL_TOKEN` no GitHub Actions.
+**Regra:** CI valida no GitHub; o workflow `deploy-site.yml` dispara a publicacao na Vercel apos merge em `docs/portfolio-hub`.
 
 ---
 
@@ -32,7 +32,20 @@ Repos que seguem esse padrão hoje:
 | **Root Directory** | `web` |
 | **Branch de produção** | `docs/portfolio-hub` |
 
-### Configurar integração Git (uma vez)
+### Deploy automatico (GitHub Actions)
+
+Workflow [`.github/workflows/deploy-site.yml`](../.github/workflows/deploy-site.yml): roda em **push** para `docs/portfolio-hub` e publica em producao.
+
+Configure **um** dos metodos nos secrets do repositorio (`Settings → Secrets and variables → Actions`):
+
+| Metodo | Secrets | Como obter |
+|--------|---------|------------|
+| **Deploy Hook** (recomendado) | `VERCEL_DEPLOY_HOOK` | Vercel → mariahilmar → Settings → Git → Deploy Hooks → branch `docs/portfolio-hub` |
+| **CLI** (fallback) | `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` | `vercel link` no diretorio `web/` e painel da Vercel |
+
+Tambem e possivel disparar manualmente em **Actions → Deploy portfolio site → Run workflow**.
+
+### Integracao Git da Vercel (complementar)
 
 No painel **Vercel → mariahilmar → Settings → Git**:
 
@@ -42,15 +55,15 @@ No painel **Vercel → mariahilmar → Settings → Git**:
 4. Framework: Astro (detectado automaticamente)
 5. Salvar
 
-Depois disso, cada merge em `docs/portfolio-hub` dispara deploy em produção. PRs ganham **preview URL** automática.
+A integracao Git gera previews de PR. O deploy de producao apos merge e garantido pelo workflow acima.
 
 ### CI no GitHub
 
-Workflow [`.github/workflows/build-site.yml`](../.github/workflows/build-site.yml): valida `npm ci` + `npm run build` em PR e push. **Não publica** - só garante que o site compila antes do merge.
+Workflow [`.github/workflows/build-site.yml`](../.github/workflows/build-site.yml): valida `npm ci` + `npm run build` em PR e push. **Nao publica** - so garante que o site compila antes do merge.
 
-### Fallback manual (emergência)
+### Fallback manual (emergencia)
 
-Se a integração Git falhar:
+Se o workflow de deploy falhar:
 
 ```powershell
 cd web
@@ -100,5 +113,6 @@ Deploy público da API só se pedido explicitamente (e com restrições de CORS/
 - [x] URL no README raiz
 - [x] URL no site (`web/`)
 - [x] Hub versionado no GitHub
-- [ ] Integração Git Vercel conectada ao repositório
+- [ ] Secret `VERCEL_DEPLOY_HOOK` (ou trio `VERCEL_TOKEN` + IDs) configurado no GitHub
+- [ ] Integracao Git Vercel conectada ao repositorio (opcional, para previews)
 - [ ] Domínio customizado (opcional)
