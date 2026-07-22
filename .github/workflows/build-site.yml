@@ -6,13 +6,19 @@ on:
     branches: [docs/portfolio-hub, main]
     paths:
       - "web/**"
+      - "docs/**"
+      - "scripts/**"
       - ".github/workflows/build-site.yml"
+      - ".github/workflows/deploy-site.yml"
       - ".github/dependabot.yml"
   push:
     branches: [docs/portfolio-hub, main]
     paths:
       - "web/**"
+      - "docs/**"
+      - "scripts/**"
       - ".github/workflows/build-site.yml"
+      - ".github/workflows/deploy-site.yml"
       - ".github/dependabot.yml"
   workflow_dispatch:
 
@@ -31,10 +37,10 @@ jobs:
         working-directory: web
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
