@@ -43,10 +43,6 @@ jobs:
           curl -fsSL -X POST "$VERCEL_DEPLOY_HOOK"
           echo "status=success" >> "$GITHUB_OUTPUT"
 
-      - name: Install Vercel CLI
-        if: steps.hook.outputs.status != 'success'
-        run: npm install -g vercel@latest
-
       - name: Deploy via Vercel CLI
         if: steps.hook.outputs.status != 'success'
         env:
@@ -58,6 +54,9 @@ jobs:
             echo "::error::Configure VERCEL_DEPLOY_HOOK ou VERCEL_TOKEN + VERCEL_ORG_ID + VERCEL_PROJECT_ID nos secrets do repositorio."
             exit 1
           fi
+          vercel() {
+            npx --yes --ignore-scripts "vercel@56.5.0" "$@"
+          }
           vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
           vercel build --prod --token="$VERCEL_TOKEN"
           vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
