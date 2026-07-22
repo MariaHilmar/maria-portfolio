@@ -36,8 +36,6 @@ Saída estática em `dist/`.
 
 **Produção:** https://mariahilmar.vercel.app
 
-```powershell
-vercel deploy --prod --yes
-```
+Deploy automático via **integração Git da Vercel** após merge em `docs/portfolio-hub` (mesmo padrão dos demais projetos web).
 
-Detalhes: [`../docs/deploy.md`](../docs/deploy.md).
+Configuração e fallback manual: [`../docs/deploy.md`](../docs/deploy.md).
