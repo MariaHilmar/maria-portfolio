@@ -12,9 +12,18 @@ const capabilities = [
   "IA aplicada",
   "Qualidade",
 ];
+
+const heroHighlights = [
+  { value: "95%", label: "de entrega com OKRs" },
+  { value: "90%+", label: "retenção de talentos" },
+  { value: "Hands-on", label: "Python · FastAPI" },
+  { value: "C-Level", label: "alinhamento executivo" },
+];
 ---
 
-<BaseLayout>
+<BaseLayout
+  description="Lead Tech PM | Product Manager / Engineer (Dados & IA): liderança de produto e engenharia com gestão de squads ágeis e atuação hands-on em Python e FastAPI."
+>
   <header class="site-header">
     <div class="nav wrap">
       <a class="brand" href="#topo">Maria Hilmar</a>
@@ -32,14 +41,14 @@ const capabilities = [
     <main id="topo">
       <section class="hero wrap">
         <div class="hero-content">
-          <p class="hero-kicker">Portfólio · Product Manager / Product Owner · Dados &amp; IA</p>
+          <p class="hero-kicker">Lead Tech PM · Dados &amp; IA</p>
           <h1 class="hero-name">Maria Hilmar</h1>
+          <p class="hero-role">Lead Tech PM | Product Manager / Engineer (Dados &amp; IA)</p>
           <p class="hero-tagline">
-            Product Manager / Product Owner especialista na intersecção entre Dados e
-            Inteligência Artificial. Histórico consolidado em gestão de squads ágeis e governança
-            de software, traduzindo regras de negócio e arquiteturas complexas (com projetos
-            hands-on em Python e FastAPI) em produtos SaaS escaláveis com alto retorno financeiro
-            (ROI).
+            Líder de Produto e Engenharia especialista na intersecção entre Dados e
+            Inteligência Artificial. Com histórico consolidado na gestão de squads ágeis e
+            arquiteturas complexas, atuo de forma hands-on em Python e FastAPI para transformar
+            regras complexas em produtos escaláveis e de alto retorno (ROI).
           </p>
           <div class="hero-cta">
             <a class="btn btn-hero" href="#produto">Produto próprio</a>
@@ -49,15 +58,24 @@ const capabilities = [
             >
           </div>
         </div>
-        <figure class="hero-figure">
-          <img
-            src="/visuals/hero-arch.svg"
-            alt="Diagrama ilustrativo do fluxo Fontes, Staging, Serving, Analytics, Apps e IA"
-            width="1400"
-            height="800"
-            decoding="async"
-          />
-        </figure>
+        <aside class="hero-aside" aria-label="Destaques profissionais">
+          <div class="hero-panel">
+            <p class="hero-panel-label">Em números e foco</p>
+            <ul class="hero-metrics">
+              {
+                heroHighlights.map((item) => (
+                  <li>
+                    <span class="hero-metric-value">{item.value}</span>
+                    <span class="hero-metric-label">{item.label}</span>
+                  </li>
+                ))
+              }
+            </ul>
+            <ul class="hero-tags">
+              {capabilities.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </aside>
       </section>
     </main>
   </div>
@@ -66,61 +84,82 @@ const capabilities = [
 
     <section id="sobre" class="section wrap reveal">
       <span class="section-label">Sobre</span>
-      <h2>Liderança de produto na intersecção com dados e IA</h2>
+      <h2>Liderança técnica, produto e desenvolvimento de pessoas</h2>
       <p class="section-lead">
-        Histórico consolidado em gestão de squads ágeis e governança de software, com
-        forte viés técnico. Traduzindo regras de negócio e arquiteturas complexas em produtos
-        SaaS escaláveis com alto retorno financeiro (ROI).
+        Acredito que a tecnologia e o produto são apenas os meios; o verdadeiro motor de qualquer
+        entrega de sucesso são as pessoas. Minha atuação une a profundidade técnica e a gestão de
+        squads ágeis à criação de ambientes seguros, colaborativos e focados na evolução de cada
+        indivíduo. Reduzo a distância entre a estratégia corporativa e a engenharia para
+        transformar complexidade em produtos robustos e escaláveis.
       </p>
       <div class="about-grid">
         <div class="about-card">
-          <h3>Estratégia, Dados &amp; Métricas (Foco em ROI)</h3>
+          <h3>Liderança, Pessoas &amp; Cultura Ágil</h3>
           <p>
-            <strong>Cultura Data-Driven:</strong> Gestão ponta a ponta (Discovery ao Go-live)
-            usando OKRs e KPIs para sustentar uma taxa histórica de 95% de entrega de resultados.
+            <strong>Desenvolvimento Humano:</strong> Prática ativa de 1:1s regulares, cultura de
+            feedbacks construtivos e mentoria contínua, garantindo retenção de talentos acima de
+            90%.
           </p>
           <p>
-            <strong>Produtos de Dados:</strong> Concepção de pipelines analíticos de dados e
-            inteligência preditiva (ETL, SQL, ML) com histórico real de redução de até 15% em churn.
+            <strong>Gestão de Mudanças &amp; Conflitos:</strong> Capacidade de guiar o time através
+            de reestruturações organizacionais e mediar atritos internos com soluções
+            ganha-ganha.
           </p>
           <p>
-            <strong>Gestão de Alta Senioridade:</strong> Liderança e desenvolvimento de equipes
-            multidisciplinares com retenção de talentos acima de 90%.
+            <strong>Segurança Psicológica:</strong> Fomento a um ambiente colaborativo e de alta
+            resiliência, mitigando riscos humanos e prevenindo o burnout.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>Negócios, Stakeholders &amp; Estratégia</h3>
+          <p>
+            <strong>Alinhamento Executivo:</strong> Tradução de métricas técnicas para a linguagem
+            de negócios da diretoria (C-Level), assegurando o foco corporativo.
+          </p>
+          <p>
+            <strong>Governança de Escopo:</strong> Condução de squads ponta a ponta (Discovery ao
+            Go-live) usando OKRs para sustentar uma taxa histórica de 95% de entrega, blindando o
+            time contra mudanças bruscas de prioridade.
+          </p>
+          <p>
+            <strong>Gestão de Capacidade:</strong> Planejamento eficiente de recursos (Capacity
+            Planning) e otimização do fluxo operacional para evitar sobrecargas e equilibrar
+            demandas de produto e engenharia.
           </p>
         </div>
         <div class="about-card">
           <h3>Engenharia de Requisitos &amp; Arquitetura SaaS</h3>
           <p>
-            <strong>Tradução Técnica:</strong> Especialista em destrinchar regulamentações e
-            regras de negócio densas em diagramações visuais (C4 Model, BPMN, UML) e critérios
-            de aceite claros (BDD/Gherkin).
+            <strong>Tradução Técnica:</strong> Especialista em destrinchar regulamentações e regras
+            de negócio densas em diagramas visuais (C4 Model, BPMN, UML) e critérios de aceite
+            claros (BDD/Gherkin).
           </p>
           <p>
             <strong>Arquitetura e Segurança:</strong> Domínio em premissas de sistemas
-            Multi-tenant, segurança em banco de dados (Row-Level Security - RLS) e diretrizes
-            de Privacy by Design / LGPD.
+            Multi-tenant, segurança em banco de dados (Row-Level Security - RLS) e diretrizes de
+            Privacy by Design / LGPD.
           </p>
           <p>
-            <strong>Ecossistemas Complexos:</strong> Experiência prática na modernização de
-            sistemas legados, fiscais e financeiros, mitigando erros de conciliação em até 95%.
+            <strong>Sistemas Complexos &amp; Mitigação:</strong> Modernização prática de ecossistemas
+            legados, fiscais e financeiros, reduzindo erros de conciliação para 0% com
+            identificação proativa de gargalos.
           </p>
         </div>
         <div class="about-card">
-          <h3>Produtividade com IA &amp; Governança de QA</h3>
+          <h3>Desenvolvimento, Dados, IA &amp; Qualidade</h3>
           <p>
-            <strong>Engenharia Assistida por IA:</strong> Uso de IA generativa aplicada para
-            acelerar o ciclo de vida do software (SDLC), alcançando redução de até 70% no
-            esforço de especificação técnica.
+            <strong>Programação Hands-on:</strong> Atuação direta em código construindo serviços
+            robustos e escaláveis utilizando Python e FastAPI.
           </p>
           <p>
-            <strong>Qualidade e Guardrails:</strong> Definição de estratégias avançadas de
-            testes (CTAL-TM), validação de APIs REST e acompanhamento de métricas de
-            eficiência técnica (Velocity e Lead Time).
+            <strong>Produtos de Dados &amp; IA:</strong> Concepção de pipelines analíticos,
+            inteligência preditiva (ETL, SQL, ML) e uso de IA gerativa para acelerar o SDLC e
+            reduzir o churn em até 15%.
           </p>
           <p>
-            <strong>Documentação Viva:</strong> Garantia de integridade técnica através de
-            padrões de design, logs de arquitetura (ADRs) e contratos públicos OpenAPI no
-            repositório.
+            <strong>Governança Técnica &amp; QA:</strong> Definição de estratégias avançadas de
+            testes (CTAL-TM), validação de APIs REST e garantia de integridade através de
+            documentação viva (ADRs e contratos OpenAPI).
           </p>
         </div>
       </div>
@@ -288,10 +327,9 @@ const capabilities = [
 
     <section id="contato" class="section wrap reveal">
       <span class="section-label">Contato</span>
-      <h2>Vamos impulsionar os resultados do seu negócio?</h2>
       <p class="section-lead">
-        Aberta a oportunidades e conexões estratégicas sobre liderança de produto, governança
-        de software, ecossistemas de dados e IA com alto viés técnico.
+        Aberta a desafios estratégicos em liderança, governança de software, ecossistemas de
+        dados, IA e desenvolvimento de sistemas, atuando da concepção à entrega técnica (hands-on).
       </p>
       <div class="contact-row">
         <a class="btn btn-primary" href="https://www.linkedin.com/in/mariahilmar/" target="_blank" rel="noreferrer"
@@ -308,7 +346,7 @@ const capabilities = [
     <p>
       Maria Hilmar ·
       <a href="https://mariahilmar.vercel.app">Live</a>
-      · Product Manager / PO · Dados &amp; IA
+      · Lead Tech PM · Dados &amp; IA
     </p>
   </footer>
 </BaseLayout>
@@ -326,8 +364,9 @@ const capabilities = [
 
   .hero-band {
     background:
-      radial-gradient(700px 380px at 88% 20%, rgba(45, 154, 158, 0.28), transparent 60%),
-      linear-gradient(180deg, #0c1c22 0%, #123038 60%, #1a3a42 100%);
+      radial-gradient(700px 480px at 78% 18%, rgba(45, 154, 158, 0.24), transparent 58%),
+      radial-gradient(520px 360px at 8% 72%, rgba(45, 154, 158, 0.14), transparent 55%),
+      linear-gradient(180deg, #0c1c22 0%, #123038 62%, #1a3a42 100%);
   }
 
   .nav {
@@ -379,17 +418,94 @@ const capabilities = [
   }
 
   .hero {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    align-items: stretch;
-    padding: 3rem 0 4.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5rem);
   }
 
   .hero-content {
-    flex: 1 1 auto;
     min-width: 0;
     animation: rise 0.9s ease both;
+  }
+
+  .hero-aside {
+    min-width: 0;
+    animation: rise 1s ease 0.08s both;
+  }
+
+  .hero-panel {
+    padding: 1.5rem;
+    border: 1px solid rgba(213, 232, 233, 0.18);
+    border-radius: 16px;
+    background: rgba(8, 20, 25, 0.42);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hero-panel-label {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9ed0d2;
+  }
+
+  .hero-metrics {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .hero-metrics li {
+    padding: 0.85rem 0.9rem;
+    border-radius: 12px;
+    background: rgba(247, 250, 251, 0.04);
+    border: 1px solid rgba(213, 232, 233, 0.1);
+  }
+
+  .hero-metric-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #f7fafb;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-metric-label {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    color: rgba(247, 250, 251, 0.68);
+  }
+
+  .hero-tags {
+    list-style: none;
+    margin: 1.15rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hero-tags li {
+    padding: 0.38rem 0.72rem;
+    border-radius: 999px;
+    border: 1px solid rgba(213, 232, 233, 0.16);
+    background: rgba(247, 250, 251, 0.05);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(247, 250, 251, 0.78);
   }
 
   .btn-hero {
@@ -404,9 +520,9 @@ const capabilities = [
 
   .hero-kicker {
     font-family: var(--font-display);
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #9ed0d2;
     margin: 0 0 1rem;
@@ -414,18 +530,29 @@ const capabilities = [
 
   .hero-name {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 7vw, 5.2rem);
-    line-height: 0.95;
-    letter-spacing: -0.04em;
-    margin: 0 0 1.25rem;
+    font-size: clamp(2.8rem, 6.5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin: 0 0 0.65rem;
     color: #f7fafb;
+  }
+
+  .hero-role {
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #d5e8e9;
+    margin: 0 0 1.1rem;
   }
 
   .hero-tagline {
     max-width: 34rem;
-    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-    color: rgba(247, 250, 251, 0.85);
-    margin: 0 0 2rem;
+    font-size: clamp(1rem, 1.4vw, 1.12rem);
+    line-height: 1.65;
+    color: rgba(247, 250, 251, 0.78);
+    margin: 0 0 1.75rem;
   }
 
   .hero-cta {
@@ -469,28 +596,13 @@ const capabilities = [
     border-color: rgba(247, 250, 251, 0.85);
   }
 
-  .hero-figure {
-    flex: 1 1 auto;
-    min-width: 0;
-    margin: 0;
-    animation: rise 1s ease 0.1s both;
-  }
-
-  .hero-figure img {
-    width: 100%;
-    height: auto;
-    border-radius: 14px;
-    border: 1px solid rgba(213, 232, 233, 0.22);
-    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
-  }
-
   #sobre .section-lead {
-    max-width: none;
+    max-width: 52rem;
   }
 
   .about-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
@@ -504,8 +616,9 @@ const capabilities = [
 
   .about-card h3 {
     font-family: var(--font-display);
-    font-size: 1.15rem;
-    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
   }
 
   .about-card p {
@@ -696,16 +809,10 @@ const capabilities = [
     }
   }
 
-  @media (min-width: 901px) {
+  @media (min-width: 900px) {
     .hero {
-      flex-direction: row;
-      align-items: center;
-      gap: 2.5rem;
-    }
-
-    .hero-content,
-    .hero-figure {
-      flex: 1 1 0;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
     }
   }
 
@@ -745,23 +852,15 @@ const capabilities = [
       padding: 1.5rem 0 3rem;
     }
 
-    .hero-figure {
-      order: 2;
-    }
-
     .projects-grid {
       grid-template-columns: 1fr;
       gap: 1.25rem;
     }
-
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
-  @media (min-width: 601px) and (max-width: 900px) {
+  @media (min-width: 601px) {
     .about-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -785,16 +884,28 @@ const capabilities = [
 
     .hero {
       gap: 1.5rem;
-      padding: 1rem 0 2.5rem;
+      padding: 1.25rem 0 2.5rem;
+    }
+
+    .hero-panel {
+      padding: 1.15rem;
+    }
+
+    .hero-metrics {
+      gap: 0.65rem;
     }
 
     .hero-name {
-      font-size: clamp(2.6rem, 13vw, 3.4rem);
+      font-size: clamp(2.35rem, 11vw, 3rem);
     }
 
-    .hero-figure img {
-      border-radius: 12px;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+    .hero-role {
+      font-size: 1rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.98rem;
+      max-width: none;
     }
 
     .sj-copy {
