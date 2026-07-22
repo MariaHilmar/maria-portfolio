@@ -1,13 +1,14 @@
 name: Build portfolio site
 
+# CI roda em PR (gate de revisao) e apos merge na branch de deploy.
 on:
-  push:
-    branches: [docs/portfolio-hub]
+  pull_request:
+    branches: [docs/portfolio-hub, main]
     paths:
       - "web/**"
       - ".github/workflows/build-site.yml"
-  pull_request:
-    branches: [docs/portfolio-hub]
+  push:
+    branches: [docs/portfolio-hub, main]
     paths:
       - "web/**"
       - ".github/workflows/build-site.yml"
