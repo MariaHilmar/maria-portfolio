@@ -9,6 +9,7 @@
 | **Projeto** | `mariahilmar` |
 | **Escopo atual** | time `situacao-juridica-projects` (conta autenticada no CLI) |
 | **Origem** | pasta `web/` (Astro estático) |
+| **Branch de producao** | `docs/portfolio-hub` (default no GitHub) |
 
 ### Redeploy (local)
 
@@ -26,9 +27,40 @@ Nenhuma variável de ambiente é necessária para o site estático na v1.
 
 ---
 
-## CI no GitHub (build)
+## CI no GitHub
 
-Workflow em [`.github/workflows/build-site.yml`](../.github/workflows/build-site.yml): valida `npm ci` + `npm run build` em push/PR que alteram `web/`. **Não publica** o site - produção fica na Vercel.
+| Workflow | Arquivo | O que faz |
+|----------|---------|-----------|
+| Build | [`.github/workflows/build-site.yml`](../.github/workflows/build-site.yml) | Valida `npm ci` + `npm run build` em PR e push |
+| Deploy | [`.github/workflows/deploy-site.yml`](../.github/workflows/deploy-site.yml) | Publica em producao na Vercel apos merge em `docs/portfolio-hub` |
+
+### Por que o merge nao atualizava producao
+
+O projeto `mariahilmar` na Vercel foi criado com deploy manual via CLI (`vercel deploy --prod`). O repositorio **nao estava conectado** a integracao Git da Vercel, e o workflow de build **so compilava** sem publicar.
+
+### Configurar deploy automatico (obrigatorio uma vez)
+
+Adicione estes secrets em **GitHub → Settings → Secrets and variables → Actions**:
+
+| Secret | Valor |
+|--------|-------|
+| `VERCEL_TOKEN` | Token em [vercel.com/account/tokens](https://vercel.com/account/tokens) |
+| `VERCEL_ORG_ID` | `team_K0R2FcqfhJeaNCnZ4CkD2pbk` |
+| `VERCEL_PROJECT_ID` | `prj_jyVxABEzwhtriemLFvaA6WaMym7F` |
+
+Depois do merge em `docs/portfolio-hub`, o workflow **Deploy portfolio site** publica em https://mariahilmar.vercel.app.
+
+Para republicar manualmente sem novo merge: **Actions → Deploy portfolio site → Run workflow**.
+
+### Alternativa: integracao Git da Vercel
+
+Em vez do workflow acima, conecte o repo em **Vercel → mariahilmar → Settings → Git**:
+
+- Repositorio: `MariaHilmar/maria-portfolio`
+- Production Branch: `docs/portfolio-hub`
+- Root Directory: `web`
+
+Use **apenas uma** das opcoes (GitHub Actions **ou** integracao Git da Vercel) para evitar deploy duplicado.
 
 ---
 
