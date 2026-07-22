@@ -7,11 +7,13 @@ on:
     paths:
       - "web/**"
       - ".github/workflows/build-site.yml"
+      - ".github/dependabot.yml"
   push:
     branches: [docs/portfolio-hub, main]
     paths:
       - "web/**"
       - ".github/workflows/build-site.yml"
+      - ".github/dependabot.yml"
   workflow_dispatch:
 
 permissions:
