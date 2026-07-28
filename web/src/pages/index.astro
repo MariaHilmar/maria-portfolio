@@ -13,11 +13,27 @@ const capabilities = [
   "Qualidade",
 ];
 
-const heroHighlights = [
-  { value: "95%", label: "de entrega com OKRs" },
-  { value: "90%+", label: "retenção de talentos" },
-  { value: "Hands-on", label: "Python · FastAPI" },
-  { value: "C-Level", label: "alinhamento executivo" },
+const proofPoints = [
+  {
+    label: "JurisSync",
+    detail: "43 testes · 5 camadas · ~90% cobertura",
+    href: "https://github.com/MariaHilmar/juris-sync",
+  },
+  {
+    label: "PayCore",
+    detail: "Ledger double-entry · 33 testes",
+    href: "https://github.com/MariaHilmar/paycore",
+  },
+  {
+    label: "MGI Kpi",
+    detail: "Demo live · 358 testes Vitest",
+    href: "https://web-mgi-delog.vercel.app",
+  },
+  {
+    label: "Como avaliar",
+    detail: "Competências com evidências",
+    href: "/docs/competencias",
+  },
 ];
 ---
 
@@ -28,6 +44,7 @@ const heroHighlights = [
     <div class="nav wrap">
       <a class="brand" href="#topo">Maria Hilmar</a>
       <nav aria-label="Principal">
+        <a href="#prova">Prova técnica</a>
         <a href="#sobre">Sobre</a>
         <a href="#produto">Produto</a>
         <a href="#projetos">Projetos</a>
@@ -45,121 +62,117 @@ const heroHighlights = [
           <h1 class="hero-name">Maria Hilmar</h1>
           <p class="hero-role">Lead Tech PM | Product Manager / Engineer (Dados &amp; IA)</p>
           <p class="hero-tagline">
-            Líder de Produto e Engenharia especialista na intersecção entre Dados e
-            Inteligência Artificial. Com histórico consolidado na gestão de squads ágeis e
-            arquiteturas complexas, atuo de forma hands-on em Python e FastAPI para transformar
-            regras complexas em produtos escaláveis e de alto retorno (ROI).
+            Liderança de produto com atuação hands-on em Python e FastAPI. Transformo regras
+            densas em arquiteturas SaaS, pipelines de dados e produtos orientados a ROI - com
+            evidências públicas no GitHub.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-hero" href="#produto">Produto próprio</a>
-            <a class="btn btn-ghost hero-ghost-muted" href="#projetos">Evidências públicas</a>
+            <a class="btn btn-hero" href="#prova">Ver evidências públicas</a>
             <a class="btn btn-ghost hero-ghost" href={cvHref} download={cvFile}
               >Baixar Currículo (PDF)</a
             >
           </div>
         </div>
-        <aside class="hero-aside" aria-label="Destaques profissionais">
-          <div class="hero-panel">
-            <p class="hero-panel-label">Em números e foco</p>
-            <ul class="hero-metrics">
-              {
-                heroHighlights.map((item) => (
-                  <li>
-                    <span class="hero-metric-value">{item.value}</span>
-                    <span class="hero-metric-label">{item.label}</span>
-                  </li>
-                ))
-              }
-            </ul>
-            <ul class="hero-tags">
-              {capabilities.map((item) => <li>{item}</li>)}
-            </ul>
-          </div>
-        </aside>
       </section>
     </main>
   </div>
 
   <main>
+    <section id="prova" class="proof-band reveal">
+      <div class="wrap">
+        <span class="section-label">Prova técnica</span>
+        <h2>Código, testes e demos para auditoria rápida</h2>
+        <p class="section-lead">
+          Recortes públicos (clone &amp; run) no mesmo domínio do produto próprio. Comece pelo
+          repositório ou pela demo live.
+        </p>
+        <ul class="proof-grid">
+          {
+            proofPoints.map((item) => (
+              <li>
+                <a href={item.href}>
+                  <span class="proof-label">{item.label}</span>
+                  <span class="proof-detail">{item.detail}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="proof-cta">
+          <a class="btn btn-primary" href="https://github.com/MariaHilmar">GitHub</a>
+          <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
+          <a class="btn btn-ghost" href="/docs/competencias">Competências com evidências</a>
+        </div>
+      </div>
+    </section>
 
     <section id="sobre" class="section wrap reveal">
       <span class="section-label">Sobre</span>
-      <h2>Liderança técnica, produto e desenvolvimento de pessoas</h2>
+      <h2>Produto, arquitetura e entrega hands-on</h2>
       <p class="section-lead">
-        Acredito que a tecnologia e o produto são apenas os meios; o verdadeiro motor de qualquer
-        entrega de sucesso são as pessoas. Minha atuação une a profundidade técnica e a gestão de
-        squads ágeis à criação de ambientes seguros, colaborativos e focados na evolução de cada
-        indivíduo. Reduzo a distância entre a estratégia corporativa e a engenharia para
-        transformar complexidade em produtos robustos e escaláveis.
+        Reduzo a distância entre estratégia e engenharia: roadmap, requisitos rastreáveis e
+        implementação em Python/FastAPI. Histórico em SaaS B2B (DFimoveis), govtech (Qintess) e
+        produto próprio de jurimetria - com squads ágeis, OKRs e qualidade (CTAL-TM).
       </p>
+      <ul class="about-metrics">
+        <li>
+          <span class="about-metric-value">95%</span>
+          <span class="about-metric-label">entrega com OKRs (DFimoveis)</span>
+        </li>
+        <li>
+          <span class="about-metric-value">90%+</span>
+          <span class="about-metric-label">retenção de talentos em squads</span>
+        </li>
+        <li>
+          <span class="about-metric-value">6</span>
+          <span class="about-metric-label">produtos SaaS do zero ao Go-live</span>
+        </li>
+        <li>
+          <span class="about-metric-value">Hands-on</span>
+          <span class="about-metric-label">Python · FastAPI · dados · IA</span>
+        </li>
+      </ul>
       <div class="about-grid">
         <div class="about-card">
-          <h3>Liderança, Pessoas &amp; Cultura Ágil</h3>
+          <h3>Engenharia, Dados &amp; IA</h3>
           <p>
-            <strong>Desenvolvimento Humano:</strong> Prática ativa de 1:1s regulares, cultura de
-            feedbacks construtivos e mentoria contínua, garantindo retenção de talentos acima de
-            90%.
+            <strong>Hands-on:</strong> APIs e serviços com Python e FastAPI, PostgreSQL, Redis,
+            Docker e CI/CD.
           </p>
           <p>
-            <strong>Gestão de Mudanças &amp; Conflitos:</strong> Capacidade de guiar o time através
-            de reestruturações organizacionais e mediar atritos internos com soluções
-            ganha-ganha.
+            <strong>Dados e IA:</strong> pipelines ETL, SQL, fundamentos de ML (XGBoost), NLP,
+            pgvector e estratégias LLM/RAG.
           </p>
           <p>
-            <strong>Segurança Psicológica:</strong> Fomento a um ambiente colaborativo e de alta
-            resiliência, mitigando riscos humanos e prevenindo o burnout.
+            <strong>Qualidade:</strong> BDD, testes em camadas, contratos OpenAPI e governança
+            CTAL-TM.
           </p>
         </div>
         <div class="about-card">
-          <h3>Negócios, Stakeholders &amp; Estratégia</h3>
+          <h3>Produto &amp; Arquitetura SaaS</h3>
           <p>
-            <strong>Alinhamento Executivo:</strong> Tradução de métricas técnicas para a linguagem
-            de negócios da diretoria (C-Level), assegurando o foco corporativo.
+            <strong>Discovery ao Go-live:</strong> roadmap, priorização por valor (ROI) e OKRs
+            com alinhamento a stakeholders e engenharia.
           </p>
           <p>
-            <strong>Governança de Escopo:</strong> Condução de squads ponta a ponta (Discovery ao
-            Go-live) usando OKRs para sustentar uma taxa histórica de 95% de entrega, blindando o
-            time contra mudanças bruscas de prioridade.
+            <strong>Arquitetura:</strong> multi-tenant, RLS, Privacy by Design / LGPD, C4 Model,
+            BPMN e UML.
           </p>
           <p>
-            <strong>Gestão de Capacidade:</strong> Planejamento eficiente de recursos (Capacity
-            Planning) e otimização do fluxo operacional para evitar sobrecargas e equilibrar
-            demandas de produto e engenharia.
+            <strong>Requisitos:</strong> User Stories em BDD/Gherkin e rastreabilidade até teste.
           </p>
         </div>
         <div class="about-card">
-          <h3>Engenharia de Requisitos &amp; Arquitetura SaaS</h3>
+          <h3>Liderança de squads</h3>
           <p>
-            <strong>Tradução Técnica:</strong> Especialista em destrinchar regulamentações e regras
-            de negócio densas em diagramas visuais (C4 Model, BPMN, UML) e critérios de aceite
-            claros (BDD/Gherkin).
+            <strong>Delivery:</strong> Scrum/Kanban, Capacity Planning, Velocity e Lead Time.
           </p>
           <p>
-            <strong>Arquitetura e Segurança:</strong> Domínio em premissas de sistemas
-            Multi-tenant, segurança em banco de dados (Row-Level Security - RLS) e diretrizes de
-            Privacy by Design / LGPD.
+            <strong>Pessoas:</strong> 1:1s, feedback e ambiente colaborativo, com retenção acima
+            de 90% no ciclo DFimoveis.
           </p>
           <p>
-            <strong>Sistemas Complexos &amp; Mitigação:</strong> Modernização prática de ecossistemas
-            legados, fiscais e financeiros, reduzindo erros de conciliação para 0% com
-            identificação proativa de gargalos.
-          </p>
-        </div>
-        <div class="about-card">
-          <h3>Desenvolvimento, Dados, IA &amp; Qualidade</h3>
-          <p>
-            <strong>Programação Hands-on:</strong> Atuação direta em código construindo serviços
-            robustos e escaláveis utilizando Python e FastAPI.
-          </p>
-          <p>
-            <strong>Produtos de Dados &amp; IA:</strong> Concepção de pipelines analíticos,
-            inteligência preditiva (ETL, SQL, ML) e uso de IA gerativa para acelerar o SDLC e
-            reduzir o churn em até 15%.
-          </p>
-          <p>
-            <strong>Governança Técnica &amp; QA:</strong> Definição de estratégias avançadas de
-            testes (CTAL-TM), validação de APIs REST e garantia de integridade através de
-            documentação viva (ADRs e contratos OpenAPI).
+            <strong>Negócio:</strong> tradução de métricas técnicas para linguagem executiva.
           </p>
         </div>
       </div>
@@ -289,7 +302,7 @@ const heroHighlights = [
 
         <article class="project-card">
           <p class="evidence-kicker">Portfólio público • BI de engenharia</p>
-          <h3>MGI KPI</h3>
+          <h3>MGI Kpi</h3>
           <p>
             Pipeline de ETL escalável em Python integrado a dashboard analítico em Next.js para
             governança de métricas de engenharia. Projeto isolado para simulação de cargas de
@@ -327,17 +340,24 @@ const heroHighlights = [
 
     <section id="contato" class="section wrap reveal">
       <span class="section-label">Contato</span>
+      <h2>Vamos conversar</h2>
       <p class="section-lead">
-        Aberta a desafios estratégicos em liderança, governança de software, ecossistemas de
-        dados, IA e desenvolvimento de sistemas, atuando da concepção à entrega técnica (hands-on).
+        Busco desafios de Lead Tech PM / Product Engineer (Dados &amp; IA), remoto - da
+        concepção à entrega técnica hands-on. Prefiro contato pelo LinkedIn; o GitHub e o
+        currículo fecham a avaliação técnica.
       </p>
       <div class="contact-row">
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/mariahilmar/" target="_blank" rel="noreferrer"
-          >LinkedIn</a
+        <a
+          class="btn btn-primary"
+          href="https://www.linkedin.com/in/mariahilmar/"
+          target="_blank"
+          rel="noreferrer">Falar no LinkedIn</a
         >
-        <a class="btn btn-ghost" href="https://github.com/MariaHilmar" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn btn-ghost" href="mailto:mariahilmar@gmail.com">E-mail</a>
+        <a class="btn btn-ghost" href="https://github.com/MariaHilmar" target="_blank" rel="noreferrer"
+          >GitHub</a
+        >
         <a class="btn btn-ghost" href={cvHref} download={cvFile}>Currículo PDF</a>
+        <a class="btn btn-ghost" href="mailto:mariahilmar@gmail.com">E-mail</a>
       </div>
     </section>
   </main>
@@ -420,92 +440,15 @@ const heroHighlights = [
   .hero {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 0;
     align-items: center;
-    padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5rem);
+    padding: clamp(2.8rem, 7vw, 5rem) 0 clamp(3.2rem, 8vw, 5.5rem);
   }
 
   .hero-content {
     min-width: 0;
+    max-width: 40rem;
     animation: rise 0.9s ease both;
-  }
-
-  .hero-aside {
-    min-width: 0;
-    animation: rise 1s ease 0.08s both;
-  }
-
-  .hero-panel {
-    padding: 1.5rem;
-    border: 1px solid rgba(213, 232, 233, 0.18);
-    border-radius: 16px;
-    background: rgba(8, 20, 25, 0.42);
-    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  .hero-panel-label {
-    margin: 0 0 1rem;
-    font-family: var(--font-display);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #9ed0d2;
-  }
-
-  .hero-metrics {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.85rem;
-  }
-
-  .hero-metrics li {
-    padding: 0.85rem 0.9rem;
-    border-radius: 12px;
-    background: rgba(247, 250, 251, 0.04);
-    border: 1px solid rgba(213, 232, 233, 0.1);
-  }
-
-  .hero-metric-value {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 700;
-    line-height: 1.1;
-    color: #f7fafb;
-    letter-spacing: -0.02em;
-  }
-
-  .hero-metric-label {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.82rem;
-    line-height: 1.35;
-    color: rgba(247, 250, 251, 0.68);
-  }
-
-  .hero-tags {
-    list-style: none;
-    margin: 1.15rem 0 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .hero-tags li {
-    padding: 0.38rem 0.72rem;
-    border-radius: 999px;
-    border: 1px solid rgba(213, 232, 233, 0.16);
-    background: rgba(247, 250, 251, 0.05);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: rgba(247, 250, 251, 0.78);
   }
 
   .btn-hero {
@@ -548,7 +491,7 @@ const heroHighlights = [
   }
 
   .hero-tagline {
-    max-width: 34rem;
+    max-width: 36rem;
     font-size: clamp(1rem, 1.4vw, 1.12rem);
     line-height: 1.65;
     color: rgba(247, 250, 251, 0.78);
@@ -566,21 +509,6 @@ const heroHighlights = [
     flex: 0 1 auto;
   }
 
-  .hero-ghost-muted {
-    border-color: #52525b;
-    color: #d4d4d8;
-    transition:
-      border-color 0.2s ease,
-      color 0.2s ease,
-      background 0.2s ease;
-  }
-
-  .hero-ghost-muted:hover {
-    border-color: #71717a;
-    color: #f7fafb;
-    background: rgba(247, 250, 251, 0.06);
-  }
-
   .hero-ghost {
     border-color: rgba(247, 250, 251, 0.65);
     color: #f7fafb;
@@ -594,6 +522,105 @@ const heroHighlights = [
     background: rgba(247, 250, 251, 0.1);
     color: #f7fafb;
     border-color: rgba(247, 250, 251, 0.85);
+  }
+
+  .proof-band {
+    padding: clamp(2.5rem, 5vw, 3.75rem) 0;
+    background: rgba(255, 255, 255, 0.55);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .proof-band h2 {
+    margin: 0.35rem 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .proof-grid {
+    list-style: none;
+    margin: 1.5rem 0 1.25rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .proof-grid a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    height: 100%;
+    padding: 1rem 1.05rem;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .proof-grid a:hover {
+    border-color: rgba(26, 107, 110, 0.35);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+    color: inherit;
+  }
+
+  .proof-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--teal-deep);
+  }
+
+  .proof-detail {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  .proof-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .about-metrics {
+    list-style: none;
+    margin: 0 0 1.75rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .about-metrics li {
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .about-metric-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--teal-deep);
+    letter-spacing: -0.02em;
+  }
+
+  .about-metric-label {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.86rem;
+    line-height: 1.35;
+    color: var(--ink-soft);
   }
 
   #sobre .section-lead {
@@ -809,13 +836,6 @@ const heroHighlights = [
     }
   }
 
-  @media (min-width: 900px) {
-    .hero {
-      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-      gap: clamp(2rem, 4vw, 3.5rem);
-    }
-  }
-
   @media (min-width: 901px) and (max-width: 1099px) {
     .hero-cta {
       flex-wrap: nowrap;
@@ -825,6 +845,14 @@ const heroHighlights = [
       white-space: nowrap;
       padding: 0.72rem 0.9rem;
       font-size: 0.82rem;
+    }
+
+    .proof-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
@@ -838,6 +866,10 @@ const heroHighlights = [
       padding: 0.8rem 1.05rem;
       font-size: 0.9rem;
     }
+
+    .about-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   @media (min-width: 601px) and (max-width: 1100px) {
@@ -848,8 +880,15 @@ const heroHighlights = [
 
   @media (max-width: 900px) {
     .hero {
-      gap: 1.75rem;
       padding: 1.5rem 0 3rem;
+    }
+
+    .proof-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .projects-grid {
@@ -877,16 +916,7 @@ const heroHighlights = [
     }
 
     .hero {
-      gap: 1.5rem;
       padding: 1.25rem 0 2.5rem;
-    }
-
-    .hero-panel {
-      padding: 1.15rem;
-    }
-
-    .hero-metrics {
-      gap: 0.65rem;
     }
 
     .hero-name {
@@ -902,6 +932,8 @@ const heroHighlights = [
       max-width: none;
     }
 
+    .proof-grid,
+    .about-metrics,
     .about-grid {
       grid-template-columns: 1fr;
     }
@@ -923,7 +955,8 @@ const heroHighlights = [
 
     .hero-cta .btn,
     .project-links .btn,
-    .contact-row .btn {
+    .contact-row .btn,
+    .proof-cta .btn {
       flex: 1 1 auto;
     }
   }

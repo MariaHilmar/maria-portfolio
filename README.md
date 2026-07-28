@@ -94,7 +94,6 @@ Cliente web (Next.js + React + TypeScript + TanStack Query + Recharts) com jurim
 ```
 maria-portfolio/        # Este repositório (hub: narrativa, docs e site)
 ├── README.md
-├── PORTFOLIO_EXECUTION_PLAN.md
 ├── docs/
 ├── web/                # Site estático (Astro)
 └── scripts/
@@ -112,22 +111,6 @@ git-portfolio/
 - **`maria-portfolio`** - vitrine, documentação narrativa e links para os repos técnicos.
 - **`web/`** - site Astro. Desenvolvimento: `cd web && npm install && npm run dev` (http://localhost:4321).
 - **`juris-sync`** e **`juris-sync-web`** - repositórios separados com a evidência técnica.
-
----
-
-## Plano de execução
-
-Fases documentadas em [`PORTFOLIO_EXECUTION_PLAN.md`](PORTFOLIO_EXECUTION_PLAN.md):
-
-| Fase | Status |
-|------|--------|
-| 0 - Posicionamento | Concluída |
-| 1 - Fundação do hub | Concluída |
-| 2 - Case study JurisSync | Concluída |
-| 3 - Competências com evidências | Concluída |
-| 4 - Site estático | Concluída |
-| 5 - Deploy (site) | Concluída |
-| 6 - Polimento | Concluída |
 
 ---
 
