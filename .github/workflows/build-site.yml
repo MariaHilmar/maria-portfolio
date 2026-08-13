@@ -8,8 +8,7 @@ on:
       - "web/**"
       - "docs/**"
       - "scripts/**"
-      - ".github/workflows/build-site.yml"
-      - ".github/workflows/deploy-site.yml"
+      - ".github/workflows/**"
       - ".github/dependabot.yml"
   push:
     branches: [docs/portfolio-hub, main]
@@ -17,8 +16,7 @@ on:
       - "web/**"
       - "docs/**"
       - "scripts/**"
-      - ".github/workflows/build-site.yml"
-      - ".github/workflows/deploy-site.yml"
+      - ".github/workflows/**"
       - ".github/dependabot.yml"
   workflow_dispatch:
 
