@@ -1,0 +1,37 @@
+name: Dependabot review checklist
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  remind-review:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = [
+              '## Checklist de review (Dependabot)',
+              '',
+              'Para contar como **Code review** no perfil do GitHub, nao basta mergear:',
+              '',
+              '1. Abra a aba **Files changed**',
+              '2. Clique em **Review changes**',
+              '3. Escolha **Comment** ou **Approve**',
+              '4. Clique em **Submit review**',
+              '5. So entao faca o merge',
+              '',
+              'Comentarios soltos na Conversation nao entram no grafico de Code review.',
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body,
+            });
